@@ -1,0 +1,21 @@
+export default function App() {
+  function myFn(value) {
+    var fnValue = 1;
+    if (value < 0) {
+      console.log("it is not possival");
+    } else {
+      for (let i = 1; i <= value; i++) {
+        fnValue = fnValue * i;
+      }
+    }
+    return fnValue;
+  }
+
+  console.log(myFn(4));
+
+  return (
+    <div className="App">
+      <h1>fictorialNumber</h1>
+    </div>
+  );
+}
