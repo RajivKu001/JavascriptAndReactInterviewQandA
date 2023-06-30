@@ -1,0 +1,23 @@
+
+export default function App() {
+  const arr = [1, 2, 3, 4, 5, 6, 9];
+
+  function myFun(arr) {
+    const missingArr = [];
+    const maxValue = Math.max(...arr);
+    const minValue = Math.min(...arr);
+    for (let i = minValue; i < maxValue; i++) {
+      if (arr.indexOf(i) < 0) {
+        missingArr.push(i);
+      }
+    }
+    return missingArr;
+  }
+  console.log(myFun(arr));
+
+  return (
+    <div className="App">
+      <h1>missingValueFromArray</h1>
+    </div>
+  );
+}
