@@ -16,7 +16,7 @@ export default function App() {
   // using flatMap
   const combinedArrayFlatMap = option.flatMap((o, i) => [o, days[i]]);
 
-  console.log(combinedArrayFlatMap);
+  console.log(combinedArrayFlatMap.filter((val) => val !== undefined));
 
   // using flat and map
   const combinedArrayMap = option.map((option, i) => {
@@ -25,9 +25,19 @@ export default function App() {
 
   console.log(combinedArrayMap.flat());
 
+  const removedUndefined = [];
+  const combinedArrayMapFlat = combinedArrayMap.flat();
+
+  for (let i = 0; i < combinedArrayMapFlat.length; i++) {
+    if (combinedArrayMapFlat[i] !== undefined) {
+      removedUndefined.push(combinedArrayMapFlat[i]);
+    }
+  }
+  console.log(removedUndefined);
+
   return (
     <div className="App">
-      <h1>combineValueFromDiffrentArrayAlternately</h1>
+      <h1>combineValueFromDiffrentArrayAlternately,</h1>
     </div>
   );
 }
