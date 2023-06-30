@@ -1,0 +1,42 @@
+
+export default function App() {
+  let arr = [0, 0, 2, 0, 9, 0, 0, 4, 0, 5, 0, 0, 0];
+
+  // Remove leading zeros
+  while (arr[0] === 0) {
+    arr.shift();
+  }
+  // Remove trailing zeros
+  while (arr[arr.length - 1] === 0) {
+    arr.pop();
+  }
+
+  // console.log(arr);
+
+  const multiData = [1, [2, [3, [4, [5, 6]]]]];
+  // const flatData = multiData.flat(Infinity);
+
+  function myapp(arr) {
+    let flatNumber = [];
+    arr.forEach((element) => {
+      if (Array.isArray(element)) {
+        flatNumber = flatNumber.concat(myapp(element));
+      } else {
+        flatNumber.push(element);
+      }
+    });
+    return flatNumber;
+  }
+
+  console.log(myapp(multiData));
+  // const flat = flatArray.reduce((value, index) => {
+  //   return index++;
+  // }, 1);
+  // console.log(flat);
+
+  return (
+    <div className="App">
+      <h1>Check all console</h1>
+    </div>
+  );
+}
