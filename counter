@@ -1,0 +1,44 @@
+
+import React, { useState, useEffect } from "react";
+
+export default function App() {
+  const [realTime, setRealTime] = useState(false);
+  const [counter, setCounter] = useState(0);
+
+  const manageRealTime = () => {
+    setRealTime(true);
+  };
+
+  const reset = () => {
+    setCounter(0);
+  };
+
+  const stopBTN = () => {
+    setRealTime(false);
+  };
+  useEffect(() => {
+    let interval;
+    if (realTime) {
+      interval = setInterval(() => {
+        setCounter((currCount) => currCount + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [realTime]);
+
+  return (
+    <div>
+      <div>
+        <button onClick={() => manageRealTime()}>Start</button>
+        <button onClick={() => stopBTN()}>Stop</button>
+        <button onClick={() => reset()}>Reset Counter</button>
+      </div>
+
+      <div>
+        <span>{counter}</span>
+      </div>
+    </div>
+  );
+}
