@@ -1,0 +1,33 @@
+
+export default function App() {
+  let text = "hello hello javascript";
+  const textArray = text.split(" ");
+  const myFun = (arr) => {
+    const uniCode = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (uniCode.indexOf(arr[i]) === -1) {
+        uniCode.push(arr[i]);
+      }
+    }
+    return uniCode;
+  };
+
+  console.log(myFun(textArray));
+
+  const removeDuplicate = function (data) {
+    const unique = [];
+    data.forEach((element) => {
+      if (!unique.includes(element)) {
+        unique.push(element);
+      }
+    });
+    return unique;
+  };
+  console.log(removeDuplicate(textArray));
+
+  return (
+    <div className="App">
+      <h1>removeDuplicateText</h1>
+    </div>
+  );
+}
