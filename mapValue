@@ -1,0 +1,18 @@
+import React, { useState, useEffect, Fragment } from "react";
+function FilterMap() {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/users")
+      .then((res) => res.json())
+      .then((json) => setUser(json));
+  }, [user]);
+  const listUser = user
+    .filter((book) => book.email === "john@gmail.com")
+    .map((name, i) => {
+      return <li key={i}>{name.username}</li>;
+    });
+
+  return <Fragment>{listUser}</Fragment>;
+}
+export default FilterMap;
