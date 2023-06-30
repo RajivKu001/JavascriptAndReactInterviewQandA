@@ -1,0 +1,99 @@
+//npm install jsonwebtoken axios
+
+// authService.js
+
+import axios from 'axios';
+import jwtDecode from 'jsonwebtoken';
+
+const authService = {
+  login: async (username, password) => {
+    try {
+      // Make an API request to authenticate the user
+      const response = await axios.post('/api/login', { username, password });
+
+      // Get the JWT token from the response
+      const token = response.data.token;
+
+      // Save the token to local storage
+      localStorage.setItem('token', token);
+
+      // Return the decoded token
+      return jwtDecode(token);
+    } catch (error) {
+      throw new Error('Login failed. Please try again.');
+    }
+  },
+  logout: () => {
+    // Remove the token from local storage
+    localStorage.removeItem('token');
+  },
+  isLoggedIn: () => {
+    // Check if the token exists in local storage
+    const token = localStorage.getItem('token');
+    return token !== null;
+  },
+  getAuthToken: () => {
+    // Get the token from local storage
+    const token = localStorage.getItem('token');
+    return token;
+  },
+  getCurrentUser: () => {
+    // Get the token from local storage
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      // Decode the token and return the user information
+      return jwtDecode(token);
+    }
+
+    return null;
+  },
+};
+
+export default authService;
+
+
+// LoginForm.js
+
+
+import React, { useState } from 'react';
+import authService from './authService';
+
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = await authService.login(username, password);
+      console.log('Logged in:', user);
+      // Redirect or perform any other action upon successful login
+    } catch (error) {
+      console.error('Login failed:', error.message);
+      // Display an error message to the user
+    }
+  };
+
+  return (
+    <form onSubmit={handleLogin}>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
+};
+
+export default LoginForm
+
