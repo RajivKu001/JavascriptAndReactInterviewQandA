@@ -1,0 +1,40 @@
+
+
+export default function App() {
+  const enqueue = (stack1, stack2, value) => {
+    while (stack1.length > 0) {
+      stack2.push(stack1.pop());
+    }
+
+    stack1.push(value);
+
+    while (stack2.length > 0) {
+      stack1.push(stack2.pop());
+    }
+  };
+
+  const dequeue = (stack1) => {
+    if (stack1.length === 0) {
+      return undefined;
+    }
+
+    return stack1.pop();
+  };
+
+  // Usage example
+  const stack1 = [];
+  const stack2 = [];
+
+  enqueue(stack1, stack2, 10);
+  // enqueue(stack1, stack2, 20);
+  // enqueue(stack1, stack2, 30);
+
+  console.log(dequeue(stack1)); // Output: 10
+  console.log(dequeue(stack1)); // Output: 20
+
+  return (
+    <div className="App">
+      <h1>enqueueAndDequeue</h1>
+    </div>
+  );
+}
