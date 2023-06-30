@@ -1,0 +1,20 @@
+
+export default function App() {
+  function getAngle(hour, minutes) {
+    const getHour = 0.5 * ((hour % 12) * 60 + minutes);
+    const getMinuted = 6 * minutes;
+    let angle = Math.abs(getHour - getMinuted);
+    if (angle > 180) {
+      angle = 360 - angle;
+    }
+    return angle;
+  }
+
+  console.log(getAngle(12, 45));
+
+  return (
+    <div className="App">
+      <h1>getAngleOfClock</h1>
+    </div>
+  );
+}
