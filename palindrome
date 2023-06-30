@@ -1,0 +1,22 @@
+export default function App() {
+  //palindrome in javascript|
+
+  function myFn(arr) {
+    let result = false;
+    let reverse = arr.split("").reverse().join("");
+    if (reverse === arr) {
+      result = true;
+    } else {
+      result = false;
+    }
+    return result;
+  }
+
+  console.log(myFn("ama"));
+
+  return (
+    <div className="App">
+      <h1>palindrome</h1>
+    </div>
+  );
+}
