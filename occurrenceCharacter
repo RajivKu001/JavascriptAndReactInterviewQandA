@@ -1,0 +1,22 @@
+
+export default function App() {
+  const name = "rajiv kumar";
+  const latNum = "m";
+  function muFun(arr, ch) {
+    const arrLength = arr.length;
+    let counter = 0;
+    for (let i = 0; i <= arrLength; i++) {
+      if (arr[i] === ch) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  console.log(muFun(name, latNum));
+  return (
+    <div className="App">
+      <h1>occurrenceCharacter</h1>
+    </div>
+  );
+}
