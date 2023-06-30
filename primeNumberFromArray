@@ -1,0 +1,46 @@
+export default function App() {
+  // function myFn(value) {
+  //   if (value === 1) {
+  //     console.log("not able do");
+  //   } else if (value < 1) {
+  //     console.log("it is not possibale");
+  //   } else {
+  //     for (let i = 2; i < value; i++) {
+  //       if (value % i === 0) {
+  //         console.log("not prime number");
+  //         break;
+  //       } else {
+  //         console.log("It is prime number");
+  //       }
+  //     }
+  //   }
+  // }
+
+  // console.log(myFn(6));
+
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  function myFun(arr) {
+    let primeData = [];
+    arr.forEach((el, ind) => {
+      if (el === 1) {
+        primeData.push(el + "not able convert");
+      } else if (el < 1) {
+        primeData.push(el + "not possibale");
+      } else if (el % 2 === 0) {
+        primeData.push(el + "not prime number");
+      } else {
+        primeData.push(el + "prime number");
+      }
+    });
+    return primeData;
+  }
+
+  console.log(myFun(arr));
+
+  return (
+    <div className="App">
+      <h1>primeNumberFromArray</h1>
+    </div>
+  );
+}
