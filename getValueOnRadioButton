@@ -1,0 +1,32 @@
+import React, { useState } from "react";
+export default function App() {
+  const [selectedValue, setSelectedValue] = useState("");
+
+  const options = [
+    { id: 1, label: "Option 1" },
+    { id: 2, label: "Option 2" },
+    { id: 3, label: "Option 3" }
+    // Add more options as needed
+  ];
+
+  const handleRadioChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  return (
+    <div className="App">
+      {options.map((option) => (
+        <label key={option.id}>
+          <input
+            type="radio"
+            value={option.label}
+            checked={selectedValue === option.label}
+            onChange={handleRadioChange}
+          />
+          {option.label}
+        </label>
+      ))}
+      <p>Selected Value: {selectedValue}</p>
+    </div>
+  );
+}
