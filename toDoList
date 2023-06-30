@@ -1,0 +1,62 @@
+
+import React, { useState } from "react";
+export default function App() {
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [listId, setListid] = useState("");
+
+  function inpuValue(e) {
+    return setTodo(e.target.value);
+  }
+
+  function handleAdd(e) {
+    e.preventDefault();
+    if (todo !== "") {
+      setTodos([
+        ...todos,
+        {
+          id: todos.length,
+          value: todo
+        }
+      ]);
+    }
+    setTodo("");
+  }
+  function selectFn(e, id) {
+    e.preventDefault();
+    setListid(id);
+  }
+  function deleteFn(e) {
+    e.preventDefault();
+    const tt = todos.filter((l) => l.id !== listId);
+    setTodos([...tt]);
+  }
+
+  return (
+    <div>
+      <div>
+        <input type="text" value={todo} onChange={inpuValue} />
+        <button type="button" onClick={handleAdd}>
+          Add
+        </button>
+      </div>
+      <div>
+        {todos.map((item) => {
+          return (
+            <ul>
+              <input type="checkbox" onChange={(e) => selectFn(e, item.id)} />
+              <li key={item.id}>{item.value}</li>
+            </ul>
+          );
+        })}
+        {todos && todos.length ? (
+          <button type="button" onClick={(e) => deleteFn(e)}>
+            delete
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
+    </div>
+  );
+}
