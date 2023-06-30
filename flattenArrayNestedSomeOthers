@@ -1,0 +1,56 @@
+
+export default function App() {
+  let arr = [1, -2, 3];
+  // You can check if an element exists in an array using the indexOf() method. If the element is not found, indexOf() returns -1. For example:
+  if (arr.indexOf(2) !== -1) {
+    console.log("Element found");
+  } else {
+    console.log("Element not found");
+  }
+
+  //  Write a function to flatten a nested array in JavaScript.
+
+  function flattenArray(arr) {
+    return arr.reduce(function (flat, toFlatten) {
+      return flat.concat(
+        Array.isArray(toFlatten) ? flattenArray(toFlatten) : toFlatten
+      );
+    }, []);
+  }
+
+  console.log(flattenArray);
+  const array = [1, 2, 5, 8, 70, -45, 50, -76];
+
+  function myarray(arr) {
+    const findArray = [];
+    arr.forEach((element) => {
+      if (element < 0) {
+        findArray.push(element);
+      }
+    });
+    return findArray;
+  }
+
+  console.log(myarray(array));
+
+  const array3 = [1, 2, 5, 8, 70, 1, 2, 4];
+
+  function removeDuplicates(arr) {
+    return arr.filter((elem, index) => arr.indexOf(elem) === index);
+  }
+
+  console.log(removeDuplicates(array3));
+
+  // How Can You Measure the Performance of a JavaScript Function?
+
+  const start = performance.now();
+  console.log("Hello Performance testing");
+  const end = performance.now();
+  console.log(`Time taken: ${end - start} milliseconds`);
+  return (
+    <div className="App">
+      <h1>flatten a nested array some other and if an element exists </h1>
+    <h2>flatten a nested array</h2>
+    </div>
+  );
+}
