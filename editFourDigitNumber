@@ -1,0 +1,20 @@
+
+export default function App() {
+  const Arr = 78;
+  function myFn(arr) {
+    const stArr = arr.toString();
+    let digitValue = [arr];
+    let tt = 4 - stArr.length;
+    for (let i = 0; i < tt; i++) {
+      digitValue.unshift(0);
+    }
+    return digitValue.join("");
+  }
+
+  console.log(myFn(Arr));
+  return (
+    <div className="App">
+      <h1>editFourDigitNumber</h1>
+    </div>
+  );
+}
