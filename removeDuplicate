@@ -1,0 +1,62 @@
+
+export default function App() {
+  const data = [23, 21, [32, [[14]], 55, [16]], 67, 80];
+
+  // function flattenArray(arr) {
+  //   let flattened = [];
+
+  //   arr.forEach((element) => {
+  //     if (Array.isArray(element)) {
+  //       flattened = flattened.concat(flattenArray(element));
+  //     } else {
+  //       flattened.push(element);
+  //     }
+  //   });
+
+  //   return flattened;
+  // }
+
+  function ft(arr) {
+    let flattenedd = [];
+    arr.forEach((element) => {
+      if (Array.isArray(element)) {
+        flattenedd = flattenedd.concat(ft(element));
+      } else {
+        flattenedd.push(element);
+      }
+    });
+    return flattenedd;
+  }
+  // const flattenedArray = ft(data);
+  // console.log(flattenedArray);
+
+  const arraY = [1, 2, null, 1, 3, 7, 7, 7];
+  const arraY1 = [1, 2, null, 1, 7, 7, 4, 7];
+
+  const datat = [...arraY, ...arraY1];
+
+  const duplicate = arraY.filter((value, index) => {
+    return arraY.indexOf(value) !== index;
+  });
+
+  console.log(duplicate);
+  // console.log(...new Set(duplicate));
+
+  // const removeDuplicate = function (data) {
+  //   const unique = [];
+  //   data.forEach((element) => {
+  //     if (!unique.includes(element)) {
+  //       unique.push(element);
+  //     }
+  //   });
+  //   return unique;
+  // };
+
+  // console.log(removeDuplicate(arraY));
+
+  return (
+    <div className="App">
+<h2>removeDuplicate</h2>
+    </div>
+  );
+}
