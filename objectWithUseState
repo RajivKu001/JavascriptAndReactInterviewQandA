@@ -1,0 +1,34 @@
+import React, { useState } from "react";
+
+export default function App() {
+  const [values, setValues] = useState({ company: "", position: "" });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value
+    });
+  };
+  console.log(values.company);
+  console.log(values.position);
+  return (
+    <div className="App">
+      <form>
+        <input
+          // value={values.company}
+          onChange={handleInputChange}
+          name="company"
+          label="Company"
+        />
+        <input
+          value={values.position}
+          onChange={handleInputChange}
+          name="position"
+          label="Job Title"
+        />
+        <button type="submit"> Submit </button>
+      </form>
+    </div>
+  );
+}
