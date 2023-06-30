@@ -1,0 +1,33 @@
+export default function App() {
+  const option = ["Cricket", "Football", "Hockey"];
+  const days = ["weekdays", "weekend"];
+
+  // using for loop
+
+  const combinedArray = [];
+
+  for (let i = 0; i < option.length; i++) {
+    combinedArray.push(option[i]);
+    combinedArray.push(days[i]);
+  }
+
+  console.log(combinedArray);
+
+  // using flatMap
+  const combinedArrayFlatMap = option.flatMap((o, i) => [o, days[i]]);
+
+  console.log(combinedArrayFlatMap);
+
+  // using flat and map
+  const combinedArrayMap = option.map((option, i) => {
+    return [option, days[i]];
+  });
+
+  console.log(combinedArrayMap.flat());
+
+  return (
+    <div className="App">
+      <h1>combineValueFromDiffrentArrayAlternately</h1>
+    </div>
+  );
+}
