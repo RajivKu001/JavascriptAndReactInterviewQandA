@@ -1,0 +1,15 @@
+export default function App() {
+  const name = "rajiv";
+  const voval = ["a", "i", "o", "e", "u"];
+  const tt = [...name].filter((element, index) => {
+    return voval.indexOf(element) !== -1;
+  });
+
+  console.log(...tt);
+
+  return (
+    <div className="App">
+      <h1>vowelFromString</h1>
+    </div>
+  );
+}
