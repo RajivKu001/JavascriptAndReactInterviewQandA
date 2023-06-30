@@ -1,0 +1,114 @@
+//npm install redux react-redux
+
+
+// authActions.js
+
+// Action types
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGOUT = 'LOGOUT';
+
+// Action creators
+export const loginSuccess = (token) => ({
+  type: LOGIN_SUCCESS,
+  payload: token,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
+});
+
+// authReducer.js
+
+import { LOGIN_SUCCESS, LOGOUT } from './authActions';
+
+const initialState = {
+  token: localStorage.getItem('token') || null,
+};
+
+const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        token: action.payload,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        token: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export default authReducer;
+
+
+// store.js
+
+import { createStore, combineReducers } from 'redux';
+import authReducer from './authReducer';
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+});
+
+const store = createStore(rootReducer);
+
+export default store;
+
+// LoginForm;
+
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from './authActions';
+
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Perform authentication logic here, e.g., making an API request
+    // ...
+
+    // Assuming authentication is successful, get the token
+    const token = 'your_token_here';
+
+    // Save the token to local storage
+    localStorage.setItem('token', token);
+
+    // Dispatch the login success action
+    dispatch(loginSuccess(token));
+
+    // Redirect or perform any other action upon successful login
+    // ...
+  };
+
+  return (
+    <form onSubmit={handleLogin}>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
+};
+
+export default LoginForm;
+
+
+
