@@ -1,0 +1,17 @@
+
+export default function App() {
+  const tt = "rajiv";
+  const arrRajiv = tt.split("");
+  const vowel = ["a", "i", "o", "u", "e"];
+  const fl = arrRajiv.filter((el, i) => {
+    return vowel.indexOf(el) !== -1;
+  });
+
+  console.log(fl.join(""));
+
+  return (
+    <div className="App">
+      <h1>findVowel</h1>
+    </div>
+  );
+}
