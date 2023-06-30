@@ -1,0 +1,37 @@
+import React, { useEffect } from "react";
+
+// Higher-order component with hooks
+function withLogger(WrappedComponent) {
+  return function WithLoggerComponent(props) {
+    useEffect(() => {
+      console.log(`Component ${WrappedComponent.name} mounted.`);
+
+      return () => {
+        console.log(`Component ${WrappedComponent.name} will unmount.`);
+      };
+    }, []);
+
+    return <WrappedComponent {...props} />;
+  };
+}
+
+// Component
+function MyComponent(props) {
+  return <div>Hello, {props.name}!</div>;
+}
+
+// Enhanced component using the higher-order component
+const EnhancedComponent = withLogger(MyComponent);
+
+// Usage
+function App() {
+  return <EnhancedComponent name="John" />;
+}
+
+// In this example, the withLogger function is a higher-order component that takes a component (WrappedComponent) as input. It returns a new functional component (WithLoggerComponent) that uses the useEffect hook to log a message when the component mounts and unmounts. The effect is set to run only once, thanks to the empty dependency array ([]) provided as the second argument to useEffect.
+
+// The MyComponent is a regular functional component, and EnhancedComponent is the enhanced version of MyComponent created by applying the withLogger higher-order component.
+
+// The EnhancedComponent can be used in the App component or anywhere else in the application, and it will have the additional logging functionality provided by the withLogger HOC using hooks.
+
+export default App;
