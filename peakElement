@@ -1,0 +1,38 @@
+export default function App() {
+  // Find a peak element which is not smaller than its neighbours
+
+  function findPeakElement(arr) {
+    const n = arr.length;
+
+    // Check if the first element is a peak
+    if (arr[0] >= arr[1]) {
+      return arr[0];
+    }
+
+    // Check if the last element is a peak
+    if (arr[n - 1] >= arr[n - 2]) {
+      return arr[n - 1];
+    }
+
+    // Check the rest of the elements
+    for (let i = 1; i < n - 1; i++) {
+      if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
+        return arr[i];
+      }
+    }
+
+    // No peak element found
+    return -1;
+  }
+
+  // Example usage
+  const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+  const peak = findPeakElement(arr);
+  console.log("Peak element:", peak);
+
+  return (
+    <div className="App">
+      <h1>peakElement</h1>
+    </div>
+  );
+}
