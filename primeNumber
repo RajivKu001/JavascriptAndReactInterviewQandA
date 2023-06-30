@@ -1,0 +1,26 @@
+
+export default function App() {
+  const isPrime = (num) => {
+    for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1;
+  };
+
+  const primes = [];
+  for (let i = 1; i <= 100; i++) {
+    if (isPrime(i)) {
+      primes.push(i);
+    }
+  }
+
+  console.log(primes);
+
+  return (
+    <div className="App">
+      <h1>primeNumber</h1>
+    </div>
+  );
+}
