@@ -1,0 +1,28 @@
+import React, { useState, useCallback } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+// In this example, we have a Counter component that displays a count value and a button. Clicking the button increments the count by 1. The increment function is created using the useCallback hook.
+
+// The useCallback hook is used to memoize a function, so it is not recreated on every render unless its dependencies change. In this case, the increment function is memoized and will only be recreated when the count state value changes.
+
+// By providing [count] as the second argument to useCallback, we indicate that the increment function should be recreated whenever the count value changes. This ensures that the increment function has access to the latest count value when it is invoked.
+
+// Using useCallback can be beneficial in scenarios where a function is passed down as a prop to child components. By memoizing the function, unnecessary re-renders of child components can be avoided when the function's dependencies have not changed.
+
+// Note that in this simple example, using useCallback may not provide significant performance benefits. However, in more complex scenarios or when dealing with large-scale applications, it can help optimize performance and prevent unnecessary re-renders.
+
+export default Counter;
