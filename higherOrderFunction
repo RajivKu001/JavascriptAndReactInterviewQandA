@@ -1,0 +1,30 @@
+export default function App() {
+  function add(a, b) {
+    return a + b;
+  }
+
+  function multiply(a, b) {
+    return a * b;
+  }
+
+  function applyOperation(operation, a, b) {
+    return operation(a, b);
+  }
+
+  console.log(applyOperation(add, 2, 3)); // Output: 5
+  console.log(applyOperation(multiply, 2, 3)); // Output: 6
+
+  return (
+    <div className="App">
+      hIn this example, applyOperation is a higher-order function because it
+      takes another function (operation) as an argument and uses it to perform a
+      specific operation on the given inputs (a and b). The add and multiply
+      functions are the callback functions that are passed as arguments to
+      applyOperation. Depending on the function passed, applyOperation applies
+      the respective operation on a and b and returns the result. This example
+      demonstrates how higher-order functions can provide flexibility and
+      reusability by allowing functions to be passed as arguments and used
+      dynamically within other functions.
+    </div>
+  );
+}
