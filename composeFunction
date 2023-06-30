@@ -1,0 +1,23 @@
+
+export default function App() {
+  function addFive(a) {
+    return a * 5;
+  }
+  function addTwo(a) {
+    return a * 2;
+  }
+  function addThree(a) {
+    return a * 2;
+  }
+
+  const compose = (...functions) => {
+    return (args) => {
+      return functions.reduceRight((arg, fn) => fn(arg), args);
+    };
+  };
+
+  const composeFn = compose(addFive, addTwo, addThree);
+  console.log(composeFn(6));
+
+  return <div className="App">composeFunction</div>;
+}
