@@ -1,38 +1,24 @@
-export default function App() {
-  // Find a peak element which is not smaller than its neighbours
+const findPeakElement = (nums) => {
+  let left = 0;
+  let right = nums.length - 1;
 
-  function findPeakElement(arr) {
-    const n = arr.length;
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
 
-    // Check if the first element is a peak
-    if (arr[0] >= arr[1]) {
-      return arr[0];
+    if (nums[mid] < nums[mid + 1]) {
+      // Peak is on the right side
+      left = mid + 1;
+    } else {
+      // Peak is on the left side or at the mid index
+      right = mid;
     }
-
-    // Check if the last element is a peak
-    if (arr[n - 1] >= arr[n - 2]) {
-      return arr[n - 1];
-    }
-
-    // Check the rest of the elements
-    for (let i = 1; i < n - 1; i++) {
-      if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
-        return arr[i];
-      }
-    }
-
-    // No peak element found
-    return -1;
   }
 
-  // Example usage
-  const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
-  const peak = findPeakElement(arr);
-  console.log("Peak element:", peak);
+  // At the end of the loop, 'left' and 'right' will be pointing to the peak element
+  return nums[left];
+};
 
-  return (
-    <div className="App">
-      <h1>peakElement</h1>
-    </div>
-  );
-}
+// Example usage
+const array = [1, 2, 3, 1];
+const peakElement = findPeakElement(array);
+console.log(peakElement); // Output: 3
