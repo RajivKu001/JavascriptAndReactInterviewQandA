@@ -1,0 +1,74 @@
+//store.js
+
+import { configureStore } from "@reduxjs/toolkit";
+import reducer from "./reducer";
+
+const store = configureStore({
+  reducer: { reducer }
+});
+
+export default store;
+
+// index.js
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import store from "./service/store";
+import App from "./App";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </StrictMode>
+);
+
+// reducer.js
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  count: 0
+};
+
+const counterSlice = createSlice({
+  name: "counter",
+  initialState,
+  reducers: {
+    INCREMENT: (state) => {
+      state.count += 1;
+    },
+    DECEREMENT: (state) => {
+      state.count -= 1;
+    }
+  }
+});
+
+export const { DECEREMENT, INCREMENT } = counterSlice.actions;
+
+export default counterSlice.reducer;
+
+
+// App.js
+
+import { useSelector, useDispatch } from "react-redux";
+
+import { DECEREMENT, INCREMENT } from "./service/reducer";
+
+export default function App() {
+  const count = useSelector((state) => state.reducer.count);
+  const dispatch = useDispatch();
+
+  return (
+    <div className="App">
+      <h1>{count}</h1>
+      <button onClick={() => dispatch(DECEREMENT())}>DECEREMENT</button>
+      <button onClick={() => dispatch(INCREMENT())}>INCREMENT</button>
+    </div>
+  );
+}
