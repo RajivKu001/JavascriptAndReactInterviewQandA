@@ -1,0 +1,69 @@
+// service.js
+
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+export const postApi = createApi({
+  reducerPath: 'postApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://jsonplaceholder.typicode.com/'
+  }),
+  endpoints: (builder) => ({
+    getpostType: builder.query({
+      query: (type) => 'posts',
+      method: 'GET'
+    })
+  })
+});
+
+export const { useGetpostTypeQuery } = postApi;
+
+
+// store.js
+
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { postApi } from './services/service';
+
+export const store = configureStore({
+  reducer: {
+    [postApi.reducerPath]: postApi.reducer
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(postApi.middleware)
+});
+
+setupListeners(store.dispatch);
+
+// index.js
+
+
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
+
+import App from './App';
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </StrictMode>,
+  rootElement
+);
+
+
+// App.js
+
+import { useGetpostTypeQuery } from './services/service';
+
+export default function App() {
+  const apiData = useGetpostTypeQuery('programming');
+  console.log(apiData.data);
+  return <div className="app">Hello</div>;
+}
+
+
+
