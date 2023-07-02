@@ -8,14 +8,16 @@ export default function App() {
       return [...el].reverse();
     })
     .map((el) => {
-      return el.join();
+      return el.join("");
     });
 
-  console.log(rsSingleStr);
+  console.log(rsSingleStr.join(" "));
+
+// vijaR ramuK
 
   return (
     <div className="App">
-      <h1>reverseSingleString</h1>
+      <h1>reverseSingleValue</h1>
     </div>
   );
 }
