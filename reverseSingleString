@@ -1,19 +1,12 @@
 export default function App() {
   const str = "Rajiv Kumar";
   const strArr = str.split(" ");
-  console.log(strArr);
 
-  const rsSingleStr = strArr
-    .map((el) => {
-      return [...el].reverse();
-    })
-    .map((el) => {
-      return el.join("");
-    });
+  const rsSingleStr = strArr.map((el) => {
+    return [...el].reverse().join("");
+  });
 
   console.log(rsSingleStr.join(" "));
-
-// vijaR ramuK
 
   return (
     <div className="App">
