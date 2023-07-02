@@ -1,0 +1,31 @@
+import "./styles.css";
+
+export default function App() {
+  const arr = [5, 7, 9, 11, 15, 17];
+
+  function oddNumber(arr) {
+    const min = Math.min(...arr);
+    const max = Math.max(...arr);
+    const oddArr = [];
+    for (let i = min; i < max; i++) {
+      if (i % 2 === 1) {
+        oddArr.push(i);
+      }
+    }
+    return oddArr;
+  }
+
+  const oddArr = oddNumber(arr);
+
+  const missingNumber = oddArr.filter((el) => {
+    return arr.indexOf(el) === -1;
+  });
+
+  console.log(missingNumber);
+
+  return (
+    <div className="App">
+      <h1>missingNumberFromOdd</h1>
+    </div>
+  );
+}
