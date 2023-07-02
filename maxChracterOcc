@@ -1,0 +1,21 @@
+export default function App() {
+  const str = "Rajiv Kumar Yadav";
+
+  const rsSingleStr = [...str].reduce((acc, curr) => {
+    return acc[curr] ? ++acc[curr] : (acc[curr] = 1), acc;
+  }, {});
+
+  console.log(rsSingleStr);
+
+  const maxOcc = Object.keys(rsSingleStr).reduce((a, b) =>
+    rsSingleStr[a] > rsSingleStr[b] ? a : b
+  );
+
+  console.log(maxOcc);
+
+  return (
+    <div className="App">
+      <h1>maxChracterOcc</h1>
+    </div>
+  );
+}
