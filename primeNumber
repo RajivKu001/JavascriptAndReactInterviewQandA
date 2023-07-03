@@ -1,22 +1,23 @@
-
 export default function App() {
   const isPrime = (num) => {
-    for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+    if (num < 2) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
       if (num % i === 0) {
         return false;
       }
     }
-    return num > 1;
+    return true;
   };
 
-  const primes = [];
-  for (let i = 1; i <= 100; i++) {
-    if (isPrime(i)) {
-      primes.push(i);
-    }
-  }
+  const findPrimeNumbers = (arr) => {
+    return arr.filter((num) => isPrime(num));
+  };
 
-  console.log(primes);
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const primes = findPrimeNumbers(numbers);
+  console.log(primes); // Output: [2, 3, 5, 7]
 
   return (
     <div className="App">
