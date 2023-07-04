@@ -1,0 +1,31 @@
+// Parent component
+
+import React, { useState } from "react";
+import ChildComponent from "./ChildComponent";
+export default function App() {
+  const [message, setMessage] = useState("Parent Data");
+
+  const chooseMessage = (message) => {
+    setMessage(message);
+  };
+  return (
+    <div className="App">
+      <div>
+        <ChildComponent chooseMessage={chooseMessage} />
+      </div>
+      <div>{message}</div>
+    </div>
+  );
+}
+
+
+// Child component
+
+export default function ChildComponent({ chooseMessage }) {
+  const data = "Child data";
+  return (
+    <div>
+      <button onClick={() => chooseMessage(data)}>Change Message</button>
+    </div>
+  );
+}
