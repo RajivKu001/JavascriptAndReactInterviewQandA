@@ -1,0 +1,49 @@
+// Parent component
+
+import React, { useRef, useState } from "react";
+import ChildComponent from "./ChildComponent";
+export default function App() {
+  const [value, setValue] = useState();
+  const childRef = useRef();
+
+  const handleButtonClick = () => {
+    childRef.current.focus(); // Focus the child input element
+    const value = childRef.current.getValue(); // Get the value from the child input
+    setValue(value);
+  };
+
+  return (
+    <div>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleButtonClick}>Get Value</button>
+      {value}
+    </div>
+  );
+}
+
+
+//Child Component 
+
+import React, { forwardRef, useRef } from "react";
+
+const ChildComponent = forwardRef((props, ref) => {
+  const inputRef = useRef();
+
+  // Expose the input element to the parent component using the ref
+  React.useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    },
+    getValue: () => {
+      return inputRef.current.value;
+    }
+  }));
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+    </div>
+  );
+});
+
+export default ChildComponent;
