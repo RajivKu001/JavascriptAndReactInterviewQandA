@@ -1,0 +1,30 @@
+import React, { useState, useEffect } from "react";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Increment the count every second
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+  return (
+    <div className="App">
+      <div>{count}</div>
+      React Fiber is an internal algorithmic implementation of React's
+      reconciliation process. It is a complete rewrite of React's core
+      algorithm, designed to enhance performance and enable new features like
+      async rendering, error boundaries, and more. In simple terms, React Fiber
+      is responsible for efficiently managing the rendering and updating of
+      components in a React application. It breaks the rendering process into
+      small units of work, called "fibers," and allows interruption and
+      prioritization of those units to achieve better responsiveness and user
+      experience.
+    </div>
+  );
+}
