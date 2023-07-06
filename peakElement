@@ -1,24 +1,19 @@
-const findPeakElement = (nums) => {
-  let left = 0;
-  let right = nums.length - 1;
 
-  while (left < right) {
-    const mid = Math.floor((left + right) / 2);
+export default function App() {
+  const numbers = [1, 3, 5, 2, 4];
 
-    if (nums[mid] < nums[mid + 1]) {
-      // Peak is on the right side
-      left = mid + 1;
-    } else {
-      // Peak is on the left side or at the mid index
-      right = mid;
+  const findPeak = (arr) => {
+    for (let i = 1; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+        return arr[i];
+      }
     }
-  }
+    return null; // No peak found
+  };
 
-  // At the end of the loop, 'left' and 'right' will be pointing to the peak element
-  return nums[left];
-};
+  const peak = findPeak(numbers);
 
-// Example usage
-const array = [1, 2, 3, 1];
-const peakElement = findPeakElement(array);
-console.log(peakElement); // Output: 3
+  console.log(peak); // Output: 5
+
+  return <div className="App"></div>;
+}
