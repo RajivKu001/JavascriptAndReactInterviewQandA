@@ -1,0 +1,32 @@
+import "./styles.css";
+
+export default function App() {
+  const items = [
+    { name: "Item 1", age: 20 },
+    { name: "Item 2", age: 30 },
+    { name: "Item 3", age: 20 },
+    { name: "Item 4", age: 40 },
+    { name: "Item 5", age: 30 }
+  ];
+
+  // Group items by age
+  const groupedItems = items.reduce((acc, item) => {
+    const { age } = item;
+    if (!acc[age]) {
+      acc[age] = [];
+    }
+    acc[age].push(item);
+    return acc;
+  }, {});
+
+  console.log(groupedItems);
+
+  return (
+    <div className="App">
+      <h1>
+        Group items on the basis of age of given array of objects in javascript
+        ?
+      </h1>
+    </div>
+  );
+}
