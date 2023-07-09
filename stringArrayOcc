@@ -1,0 +1,22 @@
+export default function App() {
+  const strArr = ["hello", "India", "hello", "hello"];
+
+  function myFun(arr) {
+    let count = {};
+    arr.forEach((ele) => {
+      if (count[ele]) {
+        count[ele]++;
+      } else {
+        count[ele] = 1;
+      }
+    });
+    return count;
+  }
+  console.log(myFun(strArr));
+
+  return (
+    <div className="App">
+      <h1>string array occ</h1>
+    </div>
+  );
+}
