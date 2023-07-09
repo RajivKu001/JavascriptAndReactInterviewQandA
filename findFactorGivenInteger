@@ -1,44 +1,42 @@
-
 export default function App() {
-  const findFactors = (num) => {
-    const factors = [];
+  // const findFactors = (num) => {
+  //   const factors = [];
 
-    for (let i = 1; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) {
-        factors.push(i);
+  //   for (let i = 1; i <= Math.sqrt(num); i++) {
+  //     if (num % i === 0) {
+  //       factors.push(i);
 
-        if (i !== Math.sqrt(num)) {
-          factors.push(num / i);
-        }
-      }
-    }
+  //       if (i !== Math.sqrt(num)) {
+  //         factors.push(num / i);
+  //       }
+  //     }
+  //   }
 
-    return factors;
-  };
+  //   return factors;
+  // };
 
-  const findFactorsInArray = (arr) => {
-    return arr.map((num) => {
-      const factors = findFactors(num);
-      return { number: num, factors: factors };
-    });
-  };
+  // const findFactorsInArray = (arr) => {
+  //   return arr.map((num) => {
+  //     const factors = findFactors(num);
+  //     return { number: num, factors: factors };
+  //   });
+  // };
 
-  // Example usage
-  const numbers = [6, 8, 12, 15];
-  const factorNumbers = findFactorsInArray(numbers);
-  console.log(factorNumbers);
+  // // Example usage
+  // const numbers = [6, 8, 12, 15];
+  // const factorNumbers = findFactorsInArray(numbers);
+  // // console.log(factorNumbers);
 
-// Single Value
+  // Single Value
   const arr = 6;
 
   for (let i = 0; i <= arr; i++) {
-    if (i < 1) {
-      console.log("Not a factor number");
-    } else if (arr % i === 0) {
-      console.log(i);
+    if (i > 1) {
+      if (arr % i === 0) {
+        console.log(i);
+      }
     }
   }
-
 
   return (
     <div className="App">
