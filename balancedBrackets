@@ -1,0 +1,38 @@
+export default function App() {
+  const isBalanced = (str) => {
+    const stack = [];
+
+    for (const char of str) {
+      if (char === "(" || char === "{" || char === "[") {
+        stack.push(char);
+      } else if (char === ")" || char === "}" || char === "]") {
+        if (stack.length === 0) {
+          return false;
+        }
+
+        const top = stack.pop();
+        if (
+          (char === ")" && top !== "(") ||
+          (char === "}" && top !== "{") ||
+          (char === "]" && top !== "[")
+        ) {
+          return false;
+        }
+      }
+    }
+
+    return stack.length === 0;
+  };
+
+  // Example usage:
+  console.log(isBalanced("(a + b) - (c + d)")); // true
+  console.log(isBalanced("({[x + y]})")); // true
+  console.log(isBalanced("((a + b) - (c + d)")); // false
+  console.log(isBalanced("({[x + y])]")); // false
+
+  return (
+    <div className="App">
+      <h1>Program to check a string with balanced brackets.</h1>
+    </div>
+  );
+}
