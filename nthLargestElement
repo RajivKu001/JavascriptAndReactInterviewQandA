@@ -1,0 +1,20 @@
+export default function App() {
+  function findNthLargestElement(array, n) {
+    if (n <= 0 || n > array.length) {
+      throw new Error("Invalid value of n");
+    }
+
+    return array[array.length - n];
+  }
+
+  // Example usage
+  const sortedArray = [1, 2, 3, 4, 5, 6];
+  const nthLargest = findNthLargestElement(sortedArray, 3);
+  console.log(nthLargest); // Output: 4
+
+  return (
+    <div className="App">
+      <h1> Find the nth largest element in a sorted array</h1>
+    </div>
+  );
+}
