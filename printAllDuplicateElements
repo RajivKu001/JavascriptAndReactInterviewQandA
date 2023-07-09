@@ -1,0 +1,30 @@
+import "./styles.css";
+
+export default function App() {
+  const array = [1, 2, 3, 4, 2, 5, 4, 6, 3];
+
+  // Create a Set to store unique elements
+  const uniqueElements = new Set();
+  // Create an array to store duplicate elements
+  const duplicateElements = [];
+
+  // Iterate over the array
+  array.forEach((element) => {
+    // If the element is already in the uniqueElements set, it's a duplicate
+    if (uniqueElements.has(element)) {
+      duplicateElements.push(element);
+    } else {
+      // Otherwise, add it to the uniqueElements set
+      uniqueElements.add(element);
+    }
+  });
+
+  // Print the duplicate elements
+  console.log(duplicateElements);
+
+  return (
+    <div className="App">
+      <h1>Print all duplicate elements of an array</h1>
+    </div>
+  );
+}
