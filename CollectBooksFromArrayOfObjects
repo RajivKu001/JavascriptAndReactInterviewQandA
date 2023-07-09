@@ -1,0 +1,33 @@
+export default function App() {
+  let books = [
+    {
+      name: "Anaya",
+      books: ["Bible", "harry poter"],
+      age: 21
+    },
+    {
+      name: "Annna",
+      books: ["Neta", "Das g"],
+      age: 20
+    },
+    {
+      name: "Amma",
+      books: ["Bible", "harry poter"],
+      age: 25
+    }
+  ];
+
+  const book = books.reduce((acc, curr) => {
+    return [...acc, ...curr.books];
+  }, []);
+
+  console.log(book.flat());
+  return (
+    <div className="App">
+      <h1>
+        Collect books from array of objects and return collection of books as an
+        array
+      </h1>
+    </div>
+  );
+}
