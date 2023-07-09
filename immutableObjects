@@ -1,0 +1,18 @@
+export default function App() {
+  const person = {
+    name: "John",
+    age: 30
+  };
+
+  const frozenPerson = Object.freeze(person);
+
+  frozenPerson.age = 40; // Attempted modification
+
+  console.log(frozenPerson.age); // Output: 30
+
+  return (
+    <div className="App">
+      <h1>immutableObjects</h1>
+    </div>
+  );
+}
