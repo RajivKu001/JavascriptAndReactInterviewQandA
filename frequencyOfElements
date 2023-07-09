@@ -1,0 +1,23 @@
+import "./styles.css";
+
+export default function App() {
+  const array = [1, 2, 3, 2, 4, 1, 5, 1, 3, 4, 2];
+
+  // Use reduce to create a frequency map
+  const frequencyMap = array.reduce((map, element) => {
+    // If the element exists in the map, increment its count; otherwise, set its count to 1
+    map.set(element, (map.get(element) || 0) + 1);
+    return map;
+  }, new Map());
+
+  // Display the frequency of each element
+  frequencyMap.forEach((frequency, element) => {
+    console.log(`${element}: ${frequency}`);
+  });
+
+  return (
+    <div className="App">
+      <h1>Find the frequency of elements in array using ES6 ?</h1>
+    </div>
+  );
+}
