@@ -1,0 +1,94 @@
+// data.js
+
+export const folderStr = {
+  name: "root",
+  type: "folder",
+  children: [
+    {
+      name: "folder1",
+      type: "folder",
+      children: [
+        {
+          name: "file1.txt",
+          type: "file"
+        },
+        {
+          name: "folder1-1",
+          type: "folder",
+          children: [
+            {
+              name: "file1.txt",
+              type: "file"
+            },
+            {
+              name: "file2.txt",
+              type: "file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: "folder2",
+      type: "folder",
+      children: [
+        {
+          name: "file3.txt",
+          type: "file"
+        }
+      ]
+    }
+  ]
+};
+
+
+//Folder.js
+
+import React, { useState } from "react";
+function Folder({ name, children }) {
+  const [expand, seExpand] = useState(false);
+
+  const hendler = () => {
+    seExpand(!expand);
+  };
+  const File = ({ name }) => {
+    return <p>{name}</p>;
+  };
+  return (
+    <div>
+      <button onClick={hendler}>{name}</button>
+      {expand && (
+        <ul>
+          {children.map((child) => {
+            return (
+              <li>
+                {child.type === "folder" ? (
+                  <Folder name={child.name} children={child.children} />
+                ) : (
+                  <File name={child.name} />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+export default Folder;
+
+// App.js
+
+import React from "react";
+import Folder from "./Folder";
+import { folderStr } from "./data";
+
+function App() {
+  return (
+    <div>
+      <Folder name={folderStr.name} children={folderStr.children}></Folder>
+    </div>
+  );
+}
+
+export default App;
