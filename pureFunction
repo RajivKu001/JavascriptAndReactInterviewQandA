@@ -1,0 +1,20 @@
+import "./styles.css";
+
+export default function App() {
+  //Pure function
+  const greeting = (person) => `How are you ${person}`;
+  console.log(greeting("Bob"));
+  console.log(greeting("Bob"));
+  //Not Pure
+  let count = 0;
+  const increesCount = (value) => (count += value);
+
+  console.log(increesCount(5));
+  console.log(increesCount(5));
+
+  return (
+    <div className="App">
+      <h1>Pure function</h1>
+    </div>
+  );
+}
