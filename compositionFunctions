@@ -1,0 +1,25 @@
+export default function App() {
+  // First function
+  function addTwo(x) {
+    return x + 2;
+  }
+
+  // Second function
+  function multiplyByThree(x) {
+    return x * 3;
+  }
+
+  // Composition function
+  function composedFunction(x) {
+    return multiplyByThree(addTwo(x));
+  }
+
+  // Usage
+  console.log(composedFunction(5)); // Output: 21
+
+  return (
+    <div className="App">
+      <h1>compositionFunctions</h1>
+    </div>
+  );
+}
