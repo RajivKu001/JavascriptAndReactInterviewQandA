@@ -1,0 +1,22 @@
+// App.js
+
+import React, { useMemo } from "react";
+
+export default function App() {
+  const expensiveCalculation = () => {
+    // Perform some expensive calculation
+    // This could be a complex computation, data filtering, or API call
+    console.log("Performing expensive calculation...");
+    return 42; // Just a dummy result for demonstration purposes
+  };
+  const memoizedResult = useMemo(() => {
+    return expensiveCalculation();
+  }, []); // Empty dependency array, indicating the result should only be calculated once
+
+  return (
+    <div>
+      <h1>MyComponent</h1>
+      <p>Memoized Result: {memoizedResult}</p>
+    </div>
+  );
+}
