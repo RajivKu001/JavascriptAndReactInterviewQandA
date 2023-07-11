@@ -1,0 +1,28 @@
+export default function App() {
+  const map1 = new Map();
+  map1.set("Value", 1);
+
+  console.log(...map1);
+
+  const map2 = new WeakMap();
+  // map2.set('Value', 2.3); // Throws an error
+
+  let obj = { name: "Vivek" };
+  const map3 = new WeakMap();
+  map3.set(obj, { age: 23 });
+
+  console.log(map3.has(obj));
+
+  return (
+    <div className="App">
+      in javascript, Map is used to store key-value pairs. The key-value pairs
+      can be of both primitive and non-primitive types. WeakMap is similar to
+      Map with key differences:
+      <p>The keys and values in weakmap should always be an object.</p>
+      <p>
+        If there are no references to the object, the object will be garbage
+        collected.
+      </p>
+    </div>
+  );
+}
