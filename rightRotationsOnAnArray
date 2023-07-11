@@ -1,0 +1,19 @@
+export default function App() {
+  function rotateRight(arr, rotations) {
+    if (rotations === 0) return arr;
+    for (let i = 0; i < rotations; i++) {
+      let element = arr.pop();
+      arr.unshift(element);
+    }
+    return arr;
+  }
+  const arr = [44, 1, 22, 111, 6, 7, 8];
+  console.log(rotateRight(arr, 6)); // Returns [111,44,1,22]
+  return (
+    <div className="App">
+      Given the following array: [2,3,4,5,7] Perform 3 right rotations: First
+      rotation : [7,2,3,4,5] , Second rotation : [5,7,2,3,4] and, Third
+      rotation: [4,5,7,2,3] return [4,5,7,2,3]
+    </div>
+  );
+}
