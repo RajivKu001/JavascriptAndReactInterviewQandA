@@ -1,0 +1,30 @@
+// App.js
+
+import React from "react";
+import Compb from "./Compb";
+export const userContext = React.createContext();
+
+export default function App() {
+  return (
+    <div className="App">
+      <userContext.Provider value={"useContext"}>
+        <Compb />
+      </userContext.Provider>
+    </div>
+  );
+}
+
+
+//Compb.js
+
+import React, { useContext } from "react";
+import { userContext } from "./App";
+
+export default function Compb() {
+  const val = useContext(userContext);
+  return (
+    <div className="App">
+      <h1>{val}</h1>
+    </div>
+  );
+}
