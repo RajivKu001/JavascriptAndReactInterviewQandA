@@ -1,0 +1,51 @@
+const data = [
+  {
+    ram: 11,
+    rama: 5,
+    ramaa: 8,
+    ramaaa: 9
+  },
+  {
+    ram: 115,
+    syam: 55,
+    radha: 85,
+    krishn: 95
+  },
+  {
+    gopi: 50,
+    lakshaman: 50,
+    hari: 80,
+    harikrishna: 90
+  },
+  {
+    syamana: 112,
+    rama: 52,
+    krishna: 83,
+    kanehya: 94
+  }
+];
+
+const { key: maxKey, value: maxValue } = data.reduce(
+  (acc, obj) => {
+    const [key, value] = Object.entries(obj).reduce(
+      (innerAcc, [innerKey, innerValue]) => {
+        return innerValue > innerAcc[1] ? [innerKey, innerValue] : innerAcc;
+      },
+      ["", -Infinity]
+    );
+
+    return value > acc.value ? { key, value } : acc;
+  },
+  { key: "", value: -Infinity }
+);
+
+console.log("The maximum value is:", maxValue);
+console.log("The corresponding key is:", maxKey);
+
+export default function App() {
+  return (
+    <div className="App">
+      <h1>MultiObject find the max value</h1>
+    </div>
+  );
+}
