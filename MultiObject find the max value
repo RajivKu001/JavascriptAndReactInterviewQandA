@@ -42,6 +42,24 @@ const { key: maxKey, value: maxValue } = data.reduce(
 console.log("The maximum value is:", maxValue);
 console.log("The corresponding key is:", maxKey);
 
+// Using foreach
+// let maxKey = "";
+// let maxValue = Number.NEGATIVE_INFINITY;
+
+// data.forEach(obj => {
+//   for (const key in obj) {
+//     if (obj.hasOwnProperty(key)) {
+//       const value = obj[key];
+//       if (value > maxValue) {
+//         maxValue = value;
+//         maxKey = key;
+//       }
+//     }
+//   }
+// });
+
+// console.log("The maximum value is:", maxValue);
+// console.log("The corresponding key is:", maxKey);
 export default function App() {
   return (
     <div className="App">
