@@ -1,0 +1,14 @@
+const array = [1, 1, 2, 4, 4, 8, 1];
+const sumMap = {};
+
+const result = array.reduce((acc, currentValue) => {
+    if (sumMap[currentValue]) {
+        sumMap[currentValue] += currentValue;
+    } else {
+        sumMap[currentValue] = currentValue;
+        acc.push(currentValue);
+    }
+    return acc;
+}, []);
+
+console.log(result); // Output: [1, 2, 4, 8]
