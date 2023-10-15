@@ -1,0 +1,26 @@
+import React from 'react';
+
+const input1 = { a: 1, b: 2, c: 3, d: 10, e: 12 };
+const input2 = { a: 2, e: 12, f: 6, d: 10 };
+
+const commonKeys = Object.keys(input1).filter((key) =>
+  input2.hasOwnProperty(key)
+);
+const commonValues = Object.fromEntries(
+  commonKeys
+    .filter((key) => input1[key] === input2[key])
+    .map((key) => [key, input1[key]])
+);
+
+console.log(commonKeys);
+console.log(commonValues);
+
+const App = () => {
+  return (
+    <div>
+      <h1>Common Keys and Values:</h1>
+    </div>
+  );
+};
+
+export default App;
