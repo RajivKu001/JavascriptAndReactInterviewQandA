@@ -1,0 +1,28 @@
+import React from 'react';
+
+const input1 = [1, 1, 2, 2, 4, 4, 8, 1];
+
+function myFun(num) {
+  let arr = [];
+  for (let i = 0; i < input1.length; i++) {
+    console.log(input1[i] - input1[i + 1])
+    if (input1[i] === input1[i + 1]) {
+      arr.push(input1[i] + input1[i]);
+    } else if (!arr.includes(input1[i])) {
+      arr.push(input1[i]);
+    }
+  }
+  return arr;
+}
+
+console.log(myFun());
+
+const App = () => {
+  return (
+    <div>
+      <h1>Find duplicate then add + </h1>
+    </div>
+  );
+};
+
+export default App;
