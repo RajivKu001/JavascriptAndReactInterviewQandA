@@ -1,0 +1,16 @@
+import React from 'react';
+
+const input1 = [2, 7, 11, 4, -2];
+const output1 = [11, 4, -2, 2, 7];
+const slic = input1.splice(0, 2);
+console.log([...input1, ...slic]);
+
+const App = () => {
+  return (
+    <div>
+      <h1>Rotate number</h1>
+    </div>
+  );
+};
+
+export default App;
