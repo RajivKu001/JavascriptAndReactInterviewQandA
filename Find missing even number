@@ -1,0 +1,34 @@
+import React from 'react';
+
+const input1 = [5, 7, 9, 11, 15, 17];
+
+const sortNumber = input1.sort((a, b) => {
+  return b - a;
+});
+
+function myFun(num) {
+  const even = [];
+  for (let i = 0; i <= sortNumber[0]; i++) {
+    if (i > 5) {
+      if (i % 2 !== 0) {
+        even.push(i);
+        if (!input1.includes(i)) {
+          console.log(i);
+        }
+      }
+    }
+  }
+  return even;
+}
+
+console.log(myFun());
+
+const App = () => {
+  return (
+    <div>
+      <h1>Find missing even number</h1>
+    </div>
+  );
+};
+
+export default App;
