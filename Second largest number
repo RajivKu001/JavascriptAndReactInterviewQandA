@@ -1,0 +1,20 @@
+import React from 'react';
+
+const input1 = [1, 2, -2, 11, 7, 1];
+const output1 = [1, 4, 7, 2, 4, 7];
+
+const short = [...new Set(output1)].sort((a, b) => {
+  return b - a;
+});
+
+console.log(short[1]);
+
+const App = () => {
+  return (
+    <div>
+      <h1>Second largest number</h1>
+    </div>
+  );
+};
+
+export default App;
