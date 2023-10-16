@@ -1,0 +1,3 @@
+  const str = 'RAM GHAR JATA HAI';
+
+  console.log(str.split("R").length -1)
