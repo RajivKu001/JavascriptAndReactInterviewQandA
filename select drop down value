@@ -1,0 +1,58 @@
+import React, { useState } from 'react';
+
+export default function App() {
+  const [city, setcity] = useState(['select']);
+
+  const countries = [
+    {
+      name: 'India',
+      Value: 'IND',
+      cities: ['delhi', 'mumbai'],
+    },
+    {
+      name: 'PAK',
+      Value: 'PK',
+      cities: ['Lahor', 'Karanchi'],
+    },
+    {
+      name: 'Bangaldesh',
+      Value: 'BG',
+      cities: ['Dhaka', 'Chittakong'],
+    },
+  ];
+
+  const changeHander = (e) => {
+    const value = e.target.value;
+    const cntyValue = countries.filter((ele, ind) => {
+      return ele.name === value;
+    });
+    setcity(cntyValue?.[0].cities);
+  };
+
+  const changeCityHander = (e) => {
+    e.target.value;
+  };
+
+  return (
+    <div className="App">
+      <select onChange={changeHander}>
+        {countries.map((ele, ind) => {
+          return (
+            <option key={ind} value={ele.name}>
+              {ele.name}
+            </option>
+          );
+        })}
+      </select>
+      <select onChange={changeCityHander}>
+        {city?.map((ele, ind) => {
+          return (
+            <option key={ind} value={ele}>
+              {ele}
+            </option>
+          );
+        })}
+      </select>
+    </div>
+  );
+}
