@@ -1,0 +1,46 @@
+import React from 'react';
+import './style.css'; // Import the CSS file
+
+const MyComponent = () => {
+  const data = [
+    { text: 'Item 1', isTrue: true },
+    { text: 'Item 2', isTrue: false },
+    { text: 'Item 3', isTrue: true },
+  ];
+
+  return (
+    <ul>
+      {data.map((item, index) => (
+        <li key={index} className={item.isTrue ? 'trueItem' : 'falseItem'}>
+          {item.text}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export default MyComponent;
+
+import './style.css'; // Import the CSS file
+
+* {
+  box-sizing: border-box;
+}
+
+.trueItem {
+  color: red; /* Color for true items */
+}
+
+.falseItem {
+  color: black; /* Color for false items */
+}
+
+/* Hover effect */
+.trueItem:hover {
+  color: orange; /* Color for true items on hover */
+}
+
+.falseItem:hover {
+  color: gray; /* Color for false items on hover */
+}
+
