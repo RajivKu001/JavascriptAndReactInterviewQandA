@@ -1,0 +1,19 @@
+import React from 'react';
+
+const MyComponent = () => {
+  let arr = [1, 2, 4, 2, 8, -3];
+  let i = 0;
+  const minusValue = [];
+
+  do {
+    const slc = arr.splice(0, 2);
+    minusValue.push(slc[0] - slc[1]);
+    i++;
+  } while (i <= arr.length);
+
+  console.log(minusValue);
+
+  return <div>Minus value from next value</div>;
+};
+
+export default MyComponent;
