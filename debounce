@@ -1,22 +1,29 @@
-import "./styles.css";
+import React from 'react';
 
 export default function App() {
-  const debounce = (cb, d) => {
-    let timer;
-    return function (arrgs) {
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        cb(arrgs);
-      }, d);
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
     };
   };
-  const handleChange = debounce((e) => {
-    console.log(e.target.value);
-  }, 1000);
+
+  const expensiveOperation = () => {
+    // Do something time-consuming
+    console.log('Expensive operation triggered!');
+  };
+
+  const debouncedOperation = debounce(expensiveOperation, 1000); // Debounce with 1 second delay
+
+  // Call debouncedOperation whenever needed, for example, in response to user input
+  debouncedOperation();
 
   return (
     <div className="App">
-      <h1>debounce</h1>
+      <h1>Check all console</h1>
     </div>
   );
 }
