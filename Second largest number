@@ -9,6 +9,25 @@ const short = [...new Set(output1)].sort((a, b) => {
 
 console.log(short[1]);
 
+  const arr = [54, 2, 5, 47, 8, 56, 66, 10];
+
+  function arry(data) {
+    let largest = -Infinity;
+    let secondLargest = -Infinity;
+    for (let num of data) {
+      if (num > largest) {
+        secondLargest = largest;
+        largest = num;
+      } else if (num > secondLargest && num !== largest) {
+        secondLargest = num;
+      }
+    }
+    return secondLargest;
+  }
+
+  console.log(arry(arr));
+
+
 const App = () => {
   return (
     <div>
