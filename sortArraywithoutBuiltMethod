@@ -1,26 +1,24 @@
 import React from 'react';
 
 export default function App() {
-  const bubbleSort = (arr) => {
-    const len = arr.length;
-    let swapped;
+  const unsortedArray = [64, 34, 25, 12, 22, 45, 74, 40, 90];
+
+  const sortArray = (arr) => {
+    const arrLength = arr.length;
+    let swep = false;
     do {
-      swapped = false;
-      for (let i = 0; i < len - 1; i++) {
-        if (arr[i] < arr[i + 1]) {
-          // Swap elements using destructuring assignment
+      swep = false;
+      for (let i = 0; i < arrLength - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
           [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
-          swapped = true;
+          swep = true;
         }
       }
-    } while (swapped);
+    } while (swep);
     return arr;
   };
 
-  // Example usage
-  const unsortedArray = [64, 34, 25, 12, 22, 45, 74, 40, 90];
-  const sortedArray = bubbleSort(unsortedArray);
-  console.log('Sorted array:', sortedArray);
+  console.log(sortArray(unsortedArray));
 
   return <div className="App"></div>;
 }
