@@ -1,0 +1,20 @@
+import React from 'react';
+
+export default function App() {
+  let arr = [6, 4, 5, 2, 3, 9];
+  let smallest = arr[0];
+  let secondSmallest = arr[1];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+    }
+    if (arr[i] > smallest && arr[i] < secondSmallest) {
+      secondSmallest = arr[i];
+    }
+  }
+
+  console.log(secondSmallest);
+
+  return <div className="App"></div>;
+}
