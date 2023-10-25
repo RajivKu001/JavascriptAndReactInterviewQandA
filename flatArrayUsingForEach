@@ -16,6 +16,29 @@ export default function App() {
 
   console.log(myFn(arr));
 
+  function flattenArrayWithDepth(arr, maxDepth) {
+    let flattened = [];
+
+    function flatten(innerArr, currentDepth) {
+      innerArr.forEach(function (element) {
+        if (Array.isArray(element) && currentDepth < maxDepth) {
+          flatten(element, currentDepth + 1);
+        } else {
+          flattened.push(element);
+        }
+      });
+    }
+
+    flatten(arr, 1);
+    return flattened;
+  }
+
+  // Example usage with maximum depth 2:
+  let nestedArray = [1, [2, [3, 4], 5], [6, [7, 8]]];
+  let flatArray = flattenArrayWithDepth(nestedArray, 2);
+  console.log(flatArray); // Output: [1, 2, 3, 4, 5, 6, [7, 8]]
+
+
   return (
     <div className="App">
       <h1>flatArrayUsingForEach</h1>
