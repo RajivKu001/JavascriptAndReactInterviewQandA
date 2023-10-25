@@ -1,0 +1,19 @@
+import React from 'react';
+
+export default function App() {
+  const str = 'Rajiv kumar';
+
+  let fullNameWithoutSpaces = str.replace(/\s+/g, '');
+
+  const spl = fullNameWithoutSpaces.split('');
+
+  const filterValue = spl.filter((ele, ind) => {
+    return spl.indexOf(ele) === ind;
+  });
+
+  const fullNameStr = filterValue.join().toLowerCase();
+
+  console.log(fullNameStr);
+
+  return <div className="App"></div>;
+}
