@@ -1,0 +1,14 @@
+  function person(first, last, age, eye) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+  }
+
+  person.prototype.name = function () {
+    return this.firstName + ' ' + this.lastName;
+  };
+
+  const myFather = new person('John', 'Doe', 50, 'blue');
+
+  console.log(myFather.name());
