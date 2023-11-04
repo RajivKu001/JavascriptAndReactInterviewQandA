@@ -1,0 +1,13 @@
+  let data = [1, 14, 5, 8, 5.4, 6, 5, 47, 8];
+
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data.length; j++) {
+      if (data[j] > data[j + 1]) {
+        const tem = data[j];
+        data[j] = data[j + 1];
+        data[j + 1] = tem;
+      }
+    }
+  }
+
+  console.log(data);
