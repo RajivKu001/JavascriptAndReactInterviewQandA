@@ -1,0 +1,8 @@
+  const arr1 = [1, 2, 1, 3, 4, 55];
+  const arr2 = [1, 4, 1, 3, 4, 5];
+
+  const intersection = arr1.filter((ele) => {
+    return arr2.includes(ele);
+  });
+
+  console.log([...new Set(intersection)]);
