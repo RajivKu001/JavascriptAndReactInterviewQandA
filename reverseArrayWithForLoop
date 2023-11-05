@@ -1,0 +1,7 @@
+  const arr = [1, 2, 3, 4, 5];
+  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+    let tem = arr[i];
+    arr[i] = arr[arguments.length - i - 1];
+    arr[arguments.length - i - 1] = tem;
+  }
+  console.log(arr);
