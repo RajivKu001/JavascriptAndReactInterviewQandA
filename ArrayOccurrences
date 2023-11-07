@@ -16,9 +16,20 @@ export default function App() {
         maxKey = key;
       }
     }
-
     return { key: maxKey, value: maxValue };
   };
+
+const arr = ['a','s','d','a','d','s','d','f','v','c','g','e','t','e','e','w'];
+
+    const counter = {};
+    arr.forEach((ele) => {
+        if(!counter[ele]){
+            counter[ele] = 1
+        } else {
+            counter[ele] = counter[ele] +1
+        }
+    })
+    console.log(counter);
 
   return (
     <div className="App">
