@@ -1,11 +1,3 @@
-
-export default function App() {
 const str = "i am a software develope";
 const capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1);
 console.log(capitalizedStr);
-  return (
-    <div className="App">
-      <h1>Capitalize</h1>
-    </div>
-  );
-}
