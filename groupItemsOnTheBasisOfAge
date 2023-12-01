@@ -1,6 +1,4 @@
-import "./styles.css";
 
-export default function App() {
   const items = [
     { name: "Item 1", age: 20 },
     { name: "Item 2", age: 30 },
@@ -21,12 +19,5 @@ export default function App() {
 
   console.log(groupedItems);
 
-  return (
-    <div className="App">
-      <h1>
-        Group items on the basis of age of given array of objects in javascript
-        ?
-      </h1>
-    </div>
-  );
-}
+        //Group items on the basis of age of given array of objects in javascript
+  
