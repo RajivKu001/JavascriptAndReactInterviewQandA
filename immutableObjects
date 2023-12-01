@@ -1,4 +1,4 @@
-export default function App() {
+
   const person = {
     name: "John",
     age: 30
@@ -10,9 +10,4 @@ export default function App() {
 
   console.log(frozenPerson.age); // Output: 30
 
-  return (
-    <div className="App">
-      <h1>immutableObjects</h1>
-    </div>
-  );
-}
+    //  <h1>immutableObjects</h1>
