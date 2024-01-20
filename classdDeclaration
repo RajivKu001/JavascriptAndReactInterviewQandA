@@ -1,0 +1,25 @@
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+This Person class behaves like the Person type in the previous example. However, instead of using a constructor/prototype pattern, it uses the class keyword.
+
+In the Person class, the constructor() is where you can initialize the properties of an instance. JavaScript automatically calls the constructor() method when you instantiate an object of the class.
+
+The following creates a new Person object, which will automatically call the constructor() of the Person class:
+
+let john = new Person("John Doe");
+Code language: JavaScript (javascript)
+The getName() is called a method of the Person class. Like a constructor function, you can call the methods of a class using the following syntax:
+
+objectName.methodName(args)
+Code language: CSS (css)
+For example:
+
+let name = john.getName();
+console.log(name); // "John Doe"
