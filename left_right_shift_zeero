@@ -1,0 +1,14 @@
+// function myfn (num) {
+//   let left = 0;
+//   let right = 0;
+//   while (right < num.length){
+//     if(num[right] !== 0){
+//     [num[left], num[right]] =
+//     [num[right], num[left]];
+//     left++
+//     }
+//     right++
+//   }
+//  return num;
+// }
+// console.log(myfn(arr));
