@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+
+function PaginationExample({ data, itemsPerPage }) {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const nextPage = () => setCurrentPage(currentPage + 1);
+  const prevPage = () => setCurrentPage(currentPage - 1);
+
+  return (
+    <div>
+      <ul>
+        {currentItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+      <div>
+        <button onClick={prevPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        {Array.from(
+          { length: Math.ceil(data.length / itemsPerPage) },
+          (_, index) => (
+            <button key={index} onClick={() => setCurrentPage(index + 1)}>
+              {index + 1}
+            </button>
+          )
+        )}
+        <button
+          onClick={nextPage}
+          disabled={currentPage === Math.ceil(data.length / itemsPerPage)}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const data = Array.from({ length: 50 }, (_, index) => index + 1);
+const itemsPerPage = 10;
+
+function App() {
+  return (
+    <div>
+      <h1>Pagination Example</h1>
+      <PaginationExample data={data} itemsPerPage={itemsPerPage} />
+    </div>
+  );
+}
+
+export default App;
