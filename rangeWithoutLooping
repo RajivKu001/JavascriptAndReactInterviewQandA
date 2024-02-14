@@ -1,0 +1,5 @@
+  const range = (start, end) => {
+    const count = [...Array(end - start + 1).keys()].map((el) => el + 1);
+    console.log(count);
+  };
+  console.log(range(1, 50));
