@@ -1,0 +1,35 @@
+you are given four number num1,den1,num2 and den2 you need yo find (num1/den1)+(num2/den2) and output the result in the form of (numx/denx)   in the javascript ?
+
+function addFractions(num1, den1, num2, den2) {
+    // Find the least common multiple (LCM) of den1 and den2
+    const lcm = (den1 * den2) / gcd(den1, den2);
+    
+    // Calculate the numerators for the common denominator (lcm)
+    const numx = (num1 * (lcm / den1)) + (num2 * (lcm / den2));
+    
+    // Simplify the fraction by finding the greatest common divisor (GCD) of numx and lcm
+    const commonFactor = gcd(numx, lcm);
+    
+    // Simplify the fraction
+    const simplifiedNum = numx / commonFactor;
+    const simplifiedDen = lcm / commonFactor;
+    
+    return `(${simplifiedNum}/${simplifiedDen})`;
+}
+
+// Function to find the greatest common divisor (GCD) using Euclid's algorithm
+function gcd(a, b) {
+    if (b === 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
+
+// Example usage
+const num1 = 1;
+const den1 = 4;
+const num2 = 1;
+const den2 = 6;
+
+const result = addFractions(num1, den1, num2, den2);
+console.log(result); // Output: (5/12)
