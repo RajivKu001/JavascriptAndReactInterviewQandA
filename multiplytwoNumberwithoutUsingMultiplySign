@@ -1,0 +1,9 @@
+function multiply (a,b){
+  let ans = a;
+  for(let i = 1; i < b; i++){
+    ans += a
+  }
+  return ans;
+}
+  console.log(multiply(5,3))
+}
