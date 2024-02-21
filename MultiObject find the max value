@@ -42,6 +42,21 @@ const { key: maxKey, value: maxValue } = data.reduce(
 console.log("The maximum value is:", maxValue);
 console.log("The corresponding key is:", maxKey);
 
+  const redData = data.reduce((acc, curr) => {
+    const arr = Object.entries(curr).map((item) => item);
+    return {...acc, ...Object.fromEntries(arr)}
+  },{})
+
+  let maxValue = -Infinity;
+  let maxKey = null;
+  for(let [key,value] of Object.entries(redData)){
+    if(value > maxValue){
+      maxValue = value;
+      maxKey = key
+    }
+  }
+  console.log(maxValue, maxKey);
+
 // Using foreach
 // let maxKey = "";
 // let maxValue = Number.NEGATIVE_INFINITY;
