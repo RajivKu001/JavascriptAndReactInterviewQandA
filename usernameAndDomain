@@ -1,0 +1,16 @@
+  function maskEmail(email) {
+    // Split the email address into username and domain
+    const parts = email.split('@');
+    const [user, domin] = parts;
+    const first = user.charAt(0);
+    const last = user.charAt(user.length - 1);
+    const splitDomin = domin.split('.');
+    const [gmail, com] = splitDomin;
+    return `${first}${'*'.repeat(user.length - 2)}${last}@${'*'.repeat(
+      gmail.length
+    )}.${com}`;
+  }
+  var email = 'rajivkumar@gmail.com';
+  var maskedEmail = maskEmail(email);
+  // Output: r********r@*****.com
+  console.log(maskedEmail);
