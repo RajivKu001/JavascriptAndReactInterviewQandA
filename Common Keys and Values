@@ -17,5 +17,20 @@ export default function App() {
 
   console.log(abc(input1, input2));
 
+  // function abc(arr1, arr2) {
+  //   const dupi = {};
+  //   for (let key in arr1) {
+  //     if (arr2.hasOwnProperty(key)) {
+  //       dupi[key] = arr1[key] + arr2[key];
+  //     }
+  //     if (!arr2.hasOwnProperty(key)) {
+  //       dupi[key] = arr1[key];
+  //     }
+  //   }
+  //   return dupi;
+  // }
+
+  // console.log(abc(input1, input2));
+
   return <div className="App"></div>;
 }
