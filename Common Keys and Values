@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+export default function App() {
+  const input1 = { a: 1, b: 2, c: 3, d: 10, e: 12 };
+  const input2 = { a: 2, e: 12, f: 6, d: 10 };
 
-const input1 = { a: 1, b: 2, c: 3, d: 10, e: 12 };
-const input2 = { a: 2, e: 12, f: 6, d: 10 };
+  function getCommonKeysAndValues(obj1, obj2) {
+    const commonKeyValues = {};
 
-const commonKeys = Object.keys(input1).filter((key) =>
-  input2.hasOwnProperty(key)
-);
-const commonValues = Object.fromEntries(
-  commonKeys
-    .filter((key) => input1[key] === input2[key])
-    .map((key) => [key, input1[key]])
-);
+    for (const key in obj1) {
+      if (obj2.hasOwnProperty(key)) {
+        if (obj1[key] === obj2[key]) {
+          commonKeyValues[key] = obj1[key];
+        }
+      }
+    }
 
-console.log(commonKeys);
-console.log(commonValues);
+    return { commonKeyValues };
+  }
 
-const App = () => {
-  return (
-    <div>
-      <h1>Common Keys and Values:</h1>
-    </div>
-  );
-};
+  const { commonKeyValues } = getCommonKeysAndValues(input1, input2);
 
-export default App;
+  console.log('Common Key-Value Pairs:', commonKeyValues);
+
+  return <div className="App"></div>;
+}
