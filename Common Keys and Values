@@ -3,23 +3,19 @@ export default function App() {
   const input1 = { a: 1, b: 2, c: 3, d: 10, e: 12 };
   const input2 = { a: 2, e: 12, f: 6, d: 10 };
 
-  function getCommonKeysAndValues(obj1, obj2) {
-    const commonKeyValues = {};
-
-    for (const key in obj1) {
-      if (obj2.hasOwnProperty(key)) {
-        if (obj1[key] === obj2[key]) {
-          commonKeyValues[key] = obj1[key];
+  function abc(arr1, arr2) {
+    const commonKey = {};
+    for (let key in arr1) {
+      if (arr2.hasOwnProperty(key)) {
+        if (arr1[key] == arr2[key]) {
+          commonKey[key] = arr1[key];
         }
       }
     }
-
-    return { commonKeyValues };
+    return commonKey;
   }
 
-  const { commonKeyValues } = getCommonKeysAndValues(input1, input2);
-
-  console.log('Common Key-Value Pairs:', commonKeyValues);
+  console.log(abc(input1, input2));
 
   return <div className="App"></div>;
 }
