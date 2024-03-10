@@ -1,17 +1,6 @@
-export default function App() {
   const removeDuplicates = (arr) => [...new Set(arr)];
 
   // Example usage
   const arr = [1, 2, 3, 4, 4, 5, 5, 6];
   const uniqueArr = removeDuplicates(arr);
   console.log(uniqueArr); // Output: [1, 2, 3, 4, 5, 6]
-
-  return (
-    <div className="App">
-      <h1>
-        Remove duplicates from an array and return unique values in O(n)
-        complexity.
-      </h1>
-    </div>
-  );
-}
