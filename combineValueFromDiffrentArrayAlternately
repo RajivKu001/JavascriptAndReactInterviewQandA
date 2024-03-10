@@ -1,4 +1,3 @@
-export default function App() {
   const option = ["Cricket", "Football", "Hockey"];
   const days = ["weekdays", "weekend"];
 
@@ -35,9 +34,4 @@ export default function App() {
   }
   console.log(removedUndefined);
 
-  return (
-    <div className="App">
-      <h1>combineValueFromDiffrentArrayAlternately,</h1>
-    </div>
-  );
-}
+      // <h1>combineValueFromDiffrentArrayAlternately,</h1>
