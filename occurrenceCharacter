@@ -1,6 +1,5 @@
 
-export default function App() {
-  const name = "rajiv kumar";
+ const name = "rajiv kumar";
   const latNum = "m";
   function muFun(arr, ch) {
     const arrLength = arr.length;
@@ -14,9 +13,3 @@ export default function App() {
   }
 
   console.log(muFun(name, latNum));
-  return (
-    <div className="App">
-      <h1>occurrenceCharacter</h1>
-    </div>
-  );
-}
