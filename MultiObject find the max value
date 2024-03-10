@@ -47,15 +47,15 @@ console.log("The corresponding key is:", maxKey);
     return {...acc, ...Object.fromEntries(arr)}
   },{})
 
-  let maxValue = -Infinity;
-  let maxKey = null;
-  for(let [key,value] of Object.entries(redData)){
-    if(value > maxValue){
-      maxValue = value;
-      maxKey = key
-    }
-  }
-  console.log(maxValue, maxKey);
+  // let maxValue = -Infinity;
+  // let maxKey = null;
+  // for(let [key,value] of Object.entries(redData)){
+  //   if(value > maxValue){
+  //     maxValue = value;
+  //     maxKey = key
+  //   }
+  // }
+  // console.log(maxValue, maxKey);
 
 // Using foreach
 // let maxKey = "";
@@ -75,10 +75,4 @@ console.log("The corresponding key is:", maxKey);
 
 // console.log("The maximum value is:", maxValue);
 // console.log("The corresponding key is:", maxKey);
-export default function App() {
-  return (
-    <div className="App">
-      <h1>MultiObject find the max value</h1>
-    </div>
-  );
-}
+
