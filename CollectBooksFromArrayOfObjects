@@ -1,4 +1,3 @@
-export default function App() {
   let books = [
     {
       name: "Anaya",
@@ -22,12 +21,4 @@ export default function App() {
   }, []);
 
   console.log(book.flat());
-  return (
-    <div className="App">
-      <h1>
-        Collect books from array of objects and return collection of books as an
-        array
-      </h1>
-    </div>
-  );
-}
+
