@@ -1,4 +1,3 @@
-export default function App() {
   const isPrime = (num) => {
     if (num < 2) {
       return false;
@@ -19,9 +18,3 @@ export default function App() {
   const primes = findPrimeNumbers(numbers);
   console.log(primes); // Output: [2, 3, 5, 7]
 
-  return (
-    <div className="App">
-      <h1>primeNumber</h1>
-    </div>
-  );
-}
