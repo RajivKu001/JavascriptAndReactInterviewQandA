@@ -1,6 +1,4 @@
-import "./styles.css";
 
-export default function App() {
   const array = [1, 2, 3, 4, 2, 5, 4, 6, 3];
 
   // Create a Set to store unique elements
@@ -22,9 +20,3 @@ export default function App() {
   // Print the duplicate elements
   console.log(duplicateElements);
 
-  return (
-    <div className="App">
-      <h1>Print all duplicate elements of an array</h1>
-    </div>
-  );
-}
