@@ -1,6 +1,3 @@
-import React from 'react';
-
-export default function App() {
   const unsortedArray = [64, 34, 25, 12, 22, 45, 74, 40, 90];
 
   const sortArray = (arr) => {
@@ -20,5 +17,3 @@ export default function App() {
 
   console.log(sortArray(unsortedArray));
 
-  return <div className="App"></div>;
-}
