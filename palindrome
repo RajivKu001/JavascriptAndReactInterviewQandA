@@ -1,4 +1,3 @@
-export default function App() {
   //palindrome in javascript|
 
   function myFn(arr) {
@@ -14,9 +13,3 @@ export default function App() {
 
   console.log(myFn("ama"));
 
-  return (
-    <div className="App">
-      <h1>palindrome</h1>
-    </div>
-  );
-}
