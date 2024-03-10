@@ -1,5 +1,4 @@
 
-export default function App() {
   const data = [23, 21, [32, [[14]], 55, [16]], 67, 80];
 
   // function flattenArray(arr) {
@@ -54,9 +53,3 @@ export default function App() {
 
   // console.log(removeDuplicate(arraY));
 
-  return (
-    <div className="App">
-<h2>removeDuplicate</h2>
-    </div>
-  );
-}
