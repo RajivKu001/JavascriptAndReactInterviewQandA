@@ -1,6 +1,5 @@
 
-export default function App() {
-  const arr = [1, 2, 3, 4, 5, 6, 9];
+ const arr = [1, 2, 3, 4, 5, 6, 9];
 
   function myFun(arr) {
     const missingArr = [];
@@ -15,9 +14,4 @@ export default function App() {
   }
   console.log(myFun(arr));
 
-  return (
-    <div className="App">
-      <h1>missingValueFromArray</h1>
-    </div>
-  );
-}
+//missingValueFromArray
