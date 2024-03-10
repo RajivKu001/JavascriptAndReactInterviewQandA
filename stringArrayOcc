@@ -1,4 +1,3 @@
-export default function App() {
   const strArr = ["hello", "India", "hello", "hello"];
 
   function myFun(arr) {
@@ -14,9 +13,3 @@ export default function App() {
   }
   console.log(myFun(strArr));
 
-  return (
-    <div className="App">
-      <h1>string array occ</h1>
-    </div>
-  );
-}
