@@ -1,4 +1,3 @@
-export default function App() {
   const name = "rajiv";
   const voval = ["a", "i", "o", "e", "u"];
   const tt = [...name].filter((element, index) => {
@@ -7,9 +6,3 @@ export default function App() {
 
   console.log(...tt);
 
-  return (
-    <div className="App">
-      <h1>vowelFromString</h1>
-    </div>
-  );
-}
