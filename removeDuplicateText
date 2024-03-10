@@ -1,5 +1,4 @@
 
-export default function App() {
   let text = "hello hello javascript";
   const textArray = text.split(" ");
   const myFun = (arr) => {
@@ -25,9 +24,3 @@ export default function App() {
   };
   console.log(removeDuplicate(textArray));
 
-  return (
-    <div className="App">
-      <h1>removeDuplicateText</h1>
-    </div>
-  );
-}
