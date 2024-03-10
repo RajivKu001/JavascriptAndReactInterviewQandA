@@ -1,18 +1,10 @@
 
-export default function App() {
-  const myFn = (arr) => {
+ const myFn = (arr) => {
     for (let i = 0; i < arr; i++) {
       if (arr % i === 0) {
         console.log(i);
       }
     }
   };
-
   console.log(myFn(15));
 
-  return (
-    <div className="App">
-      <h1>factorNumber</h1>
-    </div>
-  );
-}
