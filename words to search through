@@ -1,6 +1,3 @@
-import React from 'react';
-
-export default function App() {
   // Sample list of words to search through
   const wordList = [
     'apple',
@@ -21,9 +18,5 @@ export default function App() {
 
   console.log(searchWords('app'));
 
-  return (
-    <div className="App">
-      <h1>Sample list of words to search through</h1>
-    </div>
-  );
-}
+
+      // <h1>Sample list of words to search through</h1>
