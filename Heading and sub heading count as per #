@@ -1,0 +1,29 @@
+  let books = [
+    "#Hello world, welcome to the universe.",
+    "##Hello world, welcome to the universe.",
+    "#Hello world, welcome to the universe.",
+    "##Hello world, welcome to the universe.",
+    "##Hello world, welcome to the universe.",
+    "#Hello world, welcome to the universe.",
+    "#Hello world, welcome to the universe.",
+    "##Hello world, welcome to the universe.",
+    "#Hello world, welcome to the universe.",
+    "##Hello world, welcome to the universe.",
+    "#Hello world, welcome to the universe.",
+  ];
+
+  let countSingle = 1;
+  let countDubbel = 1;
+  let data = [];
+  books.forEach((ele) => {
+    if (ele.startsWith('#') && !ele.startsWith('##')) {
+      data.push(countSingle + ele);
+      countSingle = countSingle + 1;
+      countDubbel = 1;
+    } else if (ele.startsWith('##')) {
+      data.push(`${countSingle - 1}.${countDubbel} + ${ele}`);
+      countDubbel = countDubbel + 1;
+    }
+  });
+
+  console.log(data);
