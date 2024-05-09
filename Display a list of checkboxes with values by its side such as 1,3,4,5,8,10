@@ -1,0 +1,39 @@
+import React, { useState } from 'react';
+
+const App = () => {
+  // Display a list of checkboxes with values by its side such as 1,3,4,5,8,10
+  // user should be able to check/uncheck the checkbox individually, the sum of checked checkboxes should be displayed at the bottom.
+  const checkBoxArray = [1, 3, 4, 5, 8, 10];
+  const [checkBox, setChekBox] = useState(0);
+
+  const checkedHander = (e) => {
+    const value = e?.target?.value;
+    if (e.target.checked) {
+      setChekBox((checkBox) => checkBox + Number(value));
+    } else {
+      setChekBox((check) => check - Number(value));
+    }
+  };
+
+  console.log(checkBox);
+
+  const mapCheckbox = checkBoxArray.map((item, ind) => {
+    return (
+      <>
+        <label key={ind} onChange={checkedHander}>
+          {item}
+          <input value={item} type="checkbox" />
+        </label>
+        <br></br>
+      </>
+    );
+  });
+
+  return (
+    <>
+      <form>{mapCheckbox}</form>
+    </>
+  );
+};
+
+export default App;
