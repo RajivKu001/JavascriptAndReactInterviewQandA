@@ -5,3 +5,15 @@
  for (var i = 0; i < 5; i++) (function(i) {
 setTimeout(function() { console.log(i); }, i * 1000 );
 }(i))
+
+  const sum  = function (a) {
+    return function (b) {
+      if (b) {
+        return sum(a+b);
+      }
+      return a;
+    }
+  };
+  
+  console.log(sum(1)(2)()); //3
+  console.log(sum(1)(2)(3)(4)()); //10
