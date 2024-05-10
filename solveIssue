@@ -17,3 +17,13 @@ setTimeout(function() { console.log(i); }, i * 1000 );
   
   console.log(sum(1)(2)()); //3
   console.log(sum(1)(2)(3)(4)()); //10
+
+  var a = 10;
+  function log() {
+    console.log(a)
+  }
+  function useLog() {
+    var a = 20;
+    log();
+  }
+  useLog();
