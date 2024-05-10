@@ -27,3 +27,7 @@ setTimeout(function() { console.log(i); }, i * 1000 );
     log();
   }
   useLog();
+
+ const sum = (a) => (b) => b ? sum(a + b) : a;
+  console.log(sum(1)(2)()); //3
+  console.log(sum(1)(2)(3)(4)()); //10
