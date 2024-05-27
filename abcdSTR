@@ -1,0 +1,7 @@
+  const str = 'abcd';
+  function abcd(str) {
+    return str.split("").map((item, ind) => {
+      return item.toUpperCase() + item.toLowerCase().repeat(ind+1);
+    }).join("-");
+  }
+  console.log(abcd(str));
