@@ -1,0 +1,12 @@
+ const arr = [2,4,11,6];
+  let target = 15;
+  function targetSum (arr){
+    for (const num of arr){
+      let diff = target - num;
+      if(arr.includes(diff) && diff !== num){
+        return [num, diff]
+      }
+    }
+    return null;
+  }
+  console.log(targetSum(arr))
