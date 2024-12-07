@@ -1,0 +1,53 @@
+import { useState } from 'react';
+import * as React from 'react';
+import './main.css';
+
+export default function App() {
+  const [count, countSelect] = useState('');
+  const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const clickHandler = (e) => {
+    countSelect(count.concat(e.target.value));
+  };
+
+  const sumHandler = () => {
+    countSelect(eval(count).toString());
+  };
+
+  const backHandler = () => {
+    countSelect(count.slice(0, -1));
+  };
+
+  const numData = data?.map((ele, ind) => {
+    return (
+      <button className="column" key={ind} value={ele} onClick={clickHandler}>
+        {ele}
+      </button>
+    );
+  });
+  return (
+    <div className="App">
+      <div className="wapper">
+        <input type="text" value={count}></input>
+        <div className="row">
+          {numData}
+          <button className="column" value="*" onClick={clickHandler}>
+            *
+          </button>
+          <button className="column" value="-" onClick={clickHandler}>
+            -
+          </button>
+          <button className="column" value="+" onClick={clickHandler}>
+            +
+          </button>
+          <button className="column" onClick={sumHandler}>
+            =
+          </button>
+          <button className="column" onClick={backHandler}>
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
