@@ -1,15 +1,15 @@
   let inputString =
     'I have 4 pen, 5 pencils, each of which costs INR 73.45. What is the total?';
 
-  function strNumber(str) {
-    const tt = str.lastIndexOf('.');
-    const sstr = str.substring(0, tt) + str.substring(tt + 1);
-    let number = 0;
-    sstr.split(" ").forEach((item) => {
-      if(Number(item)){
-        number += parseFloat(item)
-      }
-    })
-    return number;
-  }
-  console.log(strNumber(inputString));
+  const str = inputString.split(' ');
+  const num = [];
+  str.forEach((ele) => {
+    if (ele.match(/\d+/g)) {
+      num.push(ele);
+    }
+  });
+  const sum = num.reduce((acc, curr) => {
+    return acc + parseFloat(curr);
+  }, 0);
+
+  console.log(sum);
