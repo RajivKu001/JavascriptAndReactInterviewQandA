@@ -1,15 +1,10 @@
   let inputString =
     'I have 4 pen, 5 pencils, each of which costs INR 73.45. What is the total?';
 
-  const str = inputString.split(' ');
-  const num = [];
-  str.forEach((ele) => {
-    if (ele.match(/\d+/g)) {
-      num.push(ele);
+  let tt = 0;
+
+  inputString.split(' ').forEach((ele) => {
+    if (parseFloat(ele)) {
+      tt += parseFloat(ele);
     }
   });
-  const sum = num.reduce((acc, curr) => {
-    return acc + parseFloat(curr);
-  }, 0);
-
-  console.log(sum);
