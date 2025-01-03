@@ -1,38 +1,35 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 export default function App() {
   const [count, setCount] = useState(0);
-  const [stop, setstop] = useState(false);
+  let [int, setInt] = useState();
 
-  const startHandler = () => {
-    setstop(true);
+  const incrementHandler = () => {
+    clearInterval(int);
+    const c = setInterval(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+    setInt(c);
   };
 
-  const stopHandler = () => {
-    setstop(false);
+  const decrementHandler = () => {
+    clearInterval(int);
+    const c = setInterval(() => {
+      setCount((count) => count - 1);
+    }, 1000);
+    setInt(c);
   };
 
-  const restartHandler = () => {
+  const resetHandler = () => {
     setCount(0);
+    clearInterval(int);
   };
 
-  useEffect(() => {
-    let interval = "";
-    if (stop) {
-      interval = setInterval(() => {
-        setCount((count) => count + 1);
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [stop]);
   return (
     <div className="App">
       <div>{count}</div>
-      <button onClick={startHandler}>Start</button>
-      <button onClick={stopHandler}>Stop</button>
-      <button onClick={restartHandler}>Restart</button>
+      <button onClick={incrementHandler}>Increment</button>
+      <button onClick={decrementHandler}>Decrement</button>
+      <button onClick={resetHandler}>Reset</button>
     </div>
   );
 }
