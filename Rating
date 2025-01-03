@@ -1,0 +1,28 @@
+import React, { useState, useEffect } from 'react';
+import './main';
+
+export default function App() {
+  const [rating, setRating] = useState();
+  const [hover, setHover] = useState();
+  const arr = new Array(5).fill(0);
+  return (
+    <div className="App">
+      {arr.map((ele, ind) => {
+        return (
+          <span
+            className={
+              (hover === 0 && ind < rating) | (ind < hover)
+                ? 'colured'
+                : ' uncolord'
+            }
+            onClick={() => setRating(ind + 1)}
+            onMouseEnter={() => setHover(ind + 1)}
+            onMouseLeave={() => setHover(0)}
+          >
+            &#9733;
+          </span>
+        );
+      })}
+    </div>
+  );
+}
