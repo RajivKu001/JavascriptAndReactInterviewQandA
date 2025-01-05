@@ -76,3 +76,18 @@ console.log("The corresponding key is:", maxKey);
 // console.log("The maximum value is:", maxValue);
 // console.log("The corresponding key is:", maxKey);
 
+ const find = data.filter((ele, ind, arr) => {
+    const rr = Object.assign({}, ...arr);
+    let maxValue = 0;
+    let maxKey;
+    for (let [key, value] of Object.entries(rr)) {
+      if (maxValue < value) {
+        (maxKey = key), (maxValue = value);
+      }
+    }
+    return ele[maxKey] && ele[maxKey] === maxValue;
+  });
+  console.log(find);
+
+
+
