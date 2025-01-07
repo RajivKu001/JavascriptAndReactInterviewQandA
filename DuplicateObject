@@ -1,0 +1,39 @@
+import React, { useState, useCallback, useMemo } from 'react';
+export default function App() {
+  let data = [
+    {
+      id: 1,
+      employee_name: 'Aman',
+      age: 30,
+    },
+    {
+      id: 2,
+      employee_name: 'Bhargava',
+      age: 30,
+    },
+    {
+      id: 3,
+      employee_name: 'Chaitanya',
+      age: 30,
+    },
+    {
+      id: 1,
+      employee_name: 'Aman',
+      age: 30,
+    },
+  ];
+
+  const acc = [];
+  data.forEach((ele) => {
+    const ind = acc?.findIndex((el) => el.employee_name === ele.employee_name);
+    if (ind !== -1) {
+      acc[ind].age = acc[ind].age + ele.age;
+    } else {
+      acc.push(ele);
+    }
+  });
+
+  console.log(acc);
+
+  return <div className="App"></div>;
+}
