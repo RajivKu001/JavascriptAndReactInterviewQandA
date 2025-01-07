@@ -23,15 +23,15 @@ export default function App() {
     },
   ];
 
-  const acc = [];
-  data.forEach((ele) => {
+  const acc = data.reduce((acc, ele) => {
     const ind = acc?.findIndex((el) => el.employee_name === ele.employee_name);
     if (ind !== -1) {
       acc[ind].age = acc[ind].age + ele.age;
     } else {
       acc.push(ele);
     }
-  });
+    return acc;
+  }, []);
 
   console.log(acc);
 
