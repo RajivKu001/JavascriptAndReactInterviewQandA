@@ -24,4 +24,22 @@
   console.log(a.y === b.y)
   console.log(a)
   console.log(b)
+  const [data, setData] = useState([]);
+  var a={},
+  b={key:'b'},
+  c={key:'c'};
+a[b]=123;
+a[c]=456;
+console.log(a[b]); // 456
 
+
+let number = 0;
+console.log(number++); //  0
+console.log(++number); //  2
+console.log(number); //  2
+
+
+const myArr = [1,2,3];
+const arrTwo = myArr.splice(0,4).slice(0,2);
+arrTwo[0] = 9;
+console.log(arrTwo); // [9,2]
