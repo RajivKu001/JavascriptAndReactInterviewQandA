@@ -275,3 +275,64 @@
   //   }
   //   return evenNumbers;
   // }
+
+  // console.log('Start');
+
+  // setTimeout(function () {
+  //   console.log('Timeout');
+  // }, 0);
+
+  // Promise.resolve().then(function () {
+  //   console.log('Promise');
+  // });
+
+  // console.log('End');
+
+  // async function async1() {
+  //   console.log('async1 start');
+  //   await async2();
+  //   console.log('async1 end');
+  // }
+
+  // async function async2() {
+  //   console.log('async2');
+  // }
+
+  // console.log('script start');
+
+  // setTimeout(function() {
+  //   console.log('setTimeout');
+  // }, 0);
+
+  // async1();
+
+  // new Promise(function(resolve) {
+  //   console.log('promise1');
+  //   resolve();
+  // }).then(function() {
+  //   console.log('promise2');
+  // });
+  // console.log('script end');
+
+  // function Obj() {}
+  // Obj.prototype.x = 10;
+
+  // const obj1 = new Obj();
+  // const obj2 = new Obj();
+
+  // Obj.prototype = { x: 20 };
+  // const obj3 = new Obj();
+
+  // console.log(obj1.x, obj2.x, obj3.x);
+
+  // Obj.prototype.x = 30;
+  // console.log(obj1.x, obj2.x, obj3.x);
+
+  // var a = 1;
+  // function foo() {
+  //   var a = 2;
+  //   console.log(a);
+  // }
+  // foo();
+  // console.log(a);
+
