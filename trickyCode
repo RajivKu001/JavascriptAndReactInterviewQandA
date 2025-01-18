@@ -336,3 +336,67 @@
   // foo();
   // console.log(a);
 
+  // function foo() {
+  //   a = 2;
+  // }
+  // foo();
+  // console.log(a);
+
+  // var answer = 0;
+
+  // const baseValue = (value) => (multipleValue) => value * multipleValue;
+
+  // const multiple = baseValue(2);
+  // answer = multiple(5);
+  // console.log(answer);
+
+  // function outerFunc(outerParam) {
+  //   function innerFunc(innerParam) {
+  //     outerParam['b'] = innerParam;
+  //   }
+  //   return innerFunc;
+  // }
+
+  // const obj = { a: 1 };
+  // const example = outerFunc(obj);
+  // const answer = example(2);
+  // console.log(obj);
+
+  // let arr = [1, 2];
+  // function test(array) {
+  //   array.push(3);
+  // }
+  // test(arr);
+  // console.log(arr);
+
+  // let arr = [1, 2];
+  // function test(array) {
+  //   array = [1, 2, 3];
+  // }
+  // test(arr);
+  // console.log(arr);
+
+  // const carDetails = {
+  //   name: 'Tomer',
+  //   getName() {
+  //     return this.name;
+  //   },
+  // };
+  // var name = 'Joe';
+  // var getCarName = carDetails.getName;
+
+  // console.log(getCarName());
+
+  // console.log(a);
+  // console.log(b);
+  // var a = 2;
+  // let b = 2;
+
+  // a();
+  // function a() {
+  //   console.log('a');
+  // }
+  // b();
+  // var b = function () {
+  //   console.log('b');
+  // };
