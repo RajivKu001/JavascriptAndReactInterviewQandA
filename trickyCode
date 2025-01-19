@@ -762,3 +762,208 @@
   //   },
   // };
   // console.log(obj.innerMessage());
+
+  // function myFunc() {
+  //   console.log(this.message);
+  // }
+  // myFunc.message = 'Hi John';
+  // console.log(myFunc());
+
+  // function myFunc() {
+  //   console.log(myFunc.message);
+  // }
+  // myFunc.message = 'Hi John';
+  // console.log(myFunc());
+
+  // function myFunc() {
+  //   myFunc.message = 'Hi John';
+  //   console.log(myFunc.message);
+  // }
+  // console.log(myFunc());
+
+  // function myFunc(param1, param2) {
+  //   console.log(myFunc.length);
+  // }
+  // console.log(myFunc());
+  // console.log(myFunc('a', 'b'));
+  // console.log(myFunc('a', 'b', 'c', 'd'));
+
+  // function myFunc() {
+  //   console.log(arguments.length);
+  // }
+  // console.log(myFunc());
+  // console.log(myFunc('a', 'b'));
+  // console.log(myFunc('a', 'b', 'c', 'd'));
+
+  // function Person(name, age) {
+  //   this.name = name || 'John';
+  //   this.age = age || 24;
+  //   this.displayName = function () {
+  //     console.log(this.name);
+  //   };
+  // }
+  // Person.name = 'John';
+  // Person.displayName = function () {
+  //   console.log(this.name);
+  // };
+  // var person1 = new Person('John');
+  // person1.displayName();
+  // Person.displayName();
+
+  // function passWordMngr() {
+  //   var password = '12345678';
+  //   this.userName = 'John';
+  //   return {
+  //     pwd: password,
+  //   };
+  // }
+  // // Block End
+  // var userInfo = passWordMngr();
+  // console.log(userInfo.pwd);
+  // console.log(userInfo.userName);
+
+  // var employeeId = 'aq123';
+  // function Employee() {
+  //   this.employeeId = 'bq1uy';
+  // }
+  // console.log(Employee.employeeId);
+
+  // var employeeId = 'aq123';
+
+  // function Employee() {
+  //   this.employeeId = 'bq1uy';
+  // }
+  // console.log(new Employee().employeeId);
+  // Employee.prototype.employeeId = 'kj182';
+  // Employee.prototype.JobId = '1BJKSJ';
+  // console.log(new Employee().JobId);
+  // console.log(new Employee().employeeId);
+
+  // var employeeId = 'aq123';
+  // (function Employee() {
+  //   try {
+  //     throw 'foo123';
+  //   } catch (employeeId) {
+  //     console.log(employeeId);
+  //   }
+  //   console.log(employeeId);
+  // })();
+
+  // (function() {
+  //   var greet = 'Hello World';
+  //   var toGreet = [].filter.call(greet, function(element, index) {
+  //     return index > 5;
+  //   });
+  //   console.log(toGreet);
+  // }());
+
+  // (function () {
+  //   var fooAccount = {
+  //     name: 'John',
+  //     amount: 4000,
+  //     deductAmount: function (amount) {
+  //       this.amount -= amount;
+  //       return 'Total amount left in account: ' + this.amount;
+  //     },
+  //   };
+  //   var barAccount = {
+  //     name: 'John',
+  //     amount: 6000,
+  //   };
+  //   var withdrawAmountBy = function (totalAmount) {
+  //     return fooAccount.deductAmount.bind(barAccount, totalAmount);
+  //   };
+  //   console.log(withdrawAmountBy(400)());
+  //   console.log(withdrawAmountBy(300)());
+  //   console.log(withdrawAmountBy(300)());
+  // })();
+
+  // (function () {
+  //   var fooAccount = {
+  //     name: 'John',
+  //     amount: 4000,
+  //     deductAmount: function (amount) {
+  //       this.amount -= amount;
+  //       return this.amount;
+  //     },
+  //   };
+  //   var barAccount = {
+  //     name: 'John',
+  //     amount: 6000,
+  //   };
+  //   var withdrawAmountBy = function (totalAmount) {
+  //     return fooAccount.deductAmount.apply(barAccount, [totalAmount]);
+  //   };
+  //   console.log(withdrawAmountBy(400));
+  //   console.log(withdrawAmountBy(300));
+  //   console.log(withdrawAmountBy(200));
+  // })();
+
+  // (function () {
+  //   var fooAccount = {
+  //     name: 'John',
+  //     amount: 6000,
+  //     deductAmount: function (amount) {
+  //       this.amount -= amount;
+  //       return this.amount;
+  //     },
+  //   };
+  //   var barAccount = {
+  //     name: 'John',
+  //     amount: 4000,
+  //   };
+  //   var withdrawAmountBy = function (totalAmount) {
+  //     return fooAccount.deductAmount.call(barAccount, totalAmount);
+  //   };
+  //   console.log(withdrawAmountBy(400));
+  //   console.log(withdrawAmountBy(300));
+  //   console.log(withdrawAmountBy(200));
+  // })();
+
+  // (function greetNewCustomer() {
+  //   console.log('Hello ' + this.name);
+  // }).bind({
+  //   name: 'John',
+  // })();
+
+  // function getDataFromServer(apiUrl) {
+  //   var name = 'John';
+  //   return {
+  //     then: function (fn) {
+  //       fn(name);
+  //     },
+  //   };
+  // }
+
+  // getDataFromServer('www.google.com').then(function (name) {
+  //   console.log(name);
+  // });
+
+  // (function () {
+  //   var arrayNumb = [2, 8, 15, 16, 23, 42, 1];
+  //   // Array.prototype.sort = function (a, b) {
+  //   //   return a - b;
+  //   // };
+  //   // arrayNumb.sort();
+  //   console.log(arrayNumb);
+  // })();
+
+  // (function () {
+  //   var numberArray = [2, 8, 15, 16, 23, 42, 1];
+  //   numberArray.sort(function (a, b) {
+  //     if (a == b) {
+  //       return 0;
+  //     } else {
+  //       return a < b ? -1 : 1;
+  //     }
+  //   });
+  //   console.log(numberArray);
+  // })();
+
+  // (function () {
+  //   var numberArray = [2, 8, 15, 16, 23, 42, 4];
+  //   numberArray.sort(function (a, b) {
+  //     return a - b;
+  //   });
+  //   console.log(numberArray);
+  // })();
