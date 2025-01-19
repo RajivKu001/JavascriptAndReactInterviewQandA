@@ -967,3 +967,101 @@
   //   });
   //   console.log(numberArray);
   // })();
+
+  // (function () {
+  //   var arrayNumb = [2, 8, 15, 16, 23, 42, 1];
+  //   Array.prototype.sort = function (a, b) {
+  //     return a - b;
+  //   };
+  //   const tt = arrayNumb.sort(function (a, b) {
+  //     return a - b;
+  //   });
+  //   console.log(tt);
+  // })();
+
+  // (function () {
+  //   var numberArray = [2, 8, 15, 16, 23, 42];
+  //   numberArray.sort(function (a, b) {
+  //     if (a == b) {
+  //       return 0;
+  //     } else {
+  //       return a < b ? -1 : 1;
+  //     }
+  //   });
+  //   console.log(numberArray);
+  // })();
+
+  // (function () {
+  //   var numberArray = [2, 8, 15, 16, 23, 42];
+  //   numberArray.sort(function (a, b) {
+  //     return a - b;
+  //   });
+  //   console.log(numberArray);
+  // })();
+
+  // (function () {
+  //   function sayHello() {
+  //     var name = 'Hi John';
+  //     return;
+  //     {
+  //       fullName: name;
+  //     }
+  //   }
+  //   console.log(sayHello().fullName);
+  // })();
+
+  // function getNumber() {
+  //   return 2, 4, 5;
+  // }
+
+  // var numb = getNumber();
+  // console.log(numb);
+
+  // function mul(x) {
+  //   return function (y) {
+  //     return [
+  //       x * y,
+  //       function (z) {
+  //         return x * y + z;
+  //       },
+  //     ];
+  //   };
+  // }
+
+  // console.log(mul(2)(3)[0]);
+  // console.log(mul(2)(3)[1](4));
+
+  // function mul(x) {
+  //   return function (y) {
+  //     return {
+  //       result: x * y,
+  //       sum: function (z) {
+  //         return x * y + z;
+  //       },
+  //     };
+  //   };
+  // }
+  // console.log(mul(2)(3).result);
+  // console.log(mul(2)(3).sum(4));
+
+  // function getName1() {
+  //   console.log(this.name);
+  // }
+  // Object.prototype.getName2 = () => {
+  //   console.log(this.name);
+  // };
+  // let personObj = {
+  //   name: 'Tony',
+  //   print: getName1,
+  // };
+  // personObj.print();
+  // personObj.getName2();
+
+  //   let a = true;
+  // let c = 0;
+  // setTimeout(() => {
+  // 	a = false;
+  // },2000)
+  // while(a){
+  // 	console.log('Hello')
+  // }
