@@ -1,0 +1,19 @@
+  const array = [1, 2, 3, 4, 5, 9];
+  if (!Array.prototype.myIncludes) {
+    Array.prototype.myIncludes = function (searchElement) {
+      for (let i = 0; i < this.length; i++) {
+        if (this[i] === searchElement) {
+          return true;
+        }
+      }
+      return false;
+    };
+  }
+
+  const findMissing = [];
+  for (let i = array[0]; i <= array[array.length - 1]; i++) {
+    if (!array.myIncludes(i)) {
+      findMissing.push(i);
+    }
+  }
+  console.log(findMissing);
