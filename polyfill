@@ -17,3 +17,73 @@
     }
   }
   console.log(findMissing);
+
+
+//Creating custom Map
+Array.prototype.myMap= function(callback){
+    let temp=[];
+    for(let i=0;i<this.length;i++)
+    {
+        temp.push(callback(this[i],i,this));
+    }
+    return temp;
+};
+//Performing map method through custom made map called myMap
+const nums=[1,2,3,4];
+const multiply=nums.myMap((x)=>{
+    return x*2;
+})
+console.log(multiply);
+
+//Creating custom filter
+Array.prototype.myFilter=function(callback){
+    let temp=[];
+    for(let i=0;i<this.length;i++)
+    {
+        if(callback(this[i],i,this))
+            temp.push(this[i]);
+    }
+    return temp;
+}
+//Performing filter method through custom made filter called myFilter
+const nums=[1,2,3,4];
+const FilterOdd=nums.myFilter((x)=>{
+   return x%2;
+})
+console.log(FilterOdd);
+
+//Creating custom reduce
+Array.prototype.myReduce=function(callback,initial_value){
+    var acc=initial_value;
+    for(let i=0;i<this.length;i++)
+    {
+        acc=acc?callback(acc,this[i],i,this):this[i];
+    }
+    return acc;
+
+}
+//Performing reduce method through custom made reduce called myReduce
+const nums=[1,2,3,4];
+const sum=nums.myReduce((acc,curr,i,nums)=>{
+   return acc+curr;
+},0);
+console.log(sum)
+
+  const array = [1, 2, 3, 4, 5, 9];
+  if (!Array.prototype.myForEach) {
+    Array.prototype.myForEach = function (cb) {
+      for (let i = 0; i < this.length; i++) {
+        cb(this[i],i, this)
+      }
+    };
+  }
+
+
+  const each =[];
+  array.myForEach((ele,i)=>{
+        each[i] = ele + 1
+  })
+  console.log(each)
+
+
+
