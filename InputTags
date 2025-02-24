@@ -132,44 +132,86 @@
 
 
 
+import React from "react";
+import COUNTRIES from "./countries";
+import { WithContext as ReactTags, SEPARATORS } from "react-tag-input";
 
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles.scss";
+import { Tag } from "react-tag-input/types/components/SingleTag";
 
-function App() {
-  const [count, setCount] = useState(0)
+const suggestions = COUNTRIES.map((country) => {
+  return {
+    id: country,
+    text: country,
+    className: "",
+  };
+});
+
+const App = () => {
+  const [tags, setTags] = React.useState<Array<Tag>>([
+    { id: "India", text: "India", className: "" },
+    { id: "Vietnam", text: "Vietnam", className: "" },
+    { id: "Turkey", text: "Turkey", className: "" },
+  ]);
+
+  const handleDelete = (index: number) => {
+    setTags(tags.filter((_, i) => i !== index));
+  };
+
+  const onTagUpdate = (index: number, newTag: Tag) => {
+    const updatedTags = [...tags];
+    updatedTags.splice(index, 1, newTag);
+    setTags(updatedTags);
+  };
+
+  const handleAddition = (tag: Tag) => {
+    setTags((prevTags) => {
+      return [...prevTags, tag];
+    });
+  };
+
+  const handleDrag = (tag: Tag, currPos: number, newPos: number) => {
+    const newTags = tags.slice();
+
+    newTags.splice(currPos, 1);
+    newTags.splice(newPos, 0, tag);
+
+    // re-render
+    setTags(newTags);
+  };
+
+  const handleTagClick = (index: number) => {
+    console.log("The tag at index " + index + " was clicked");
+  };
+
+  const onClearAll = () => {
+    setTags([]);
+  };
 
   return (
-    <>
+    <div className="app">
+      <h1> React Tags Example </h1>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <ReactTags
+          tags={tags}
+          inputFieldPosition="top"
+          suggestions={suggestions}
+          handleDelete={handleDelete}
+          handleAddition={handleAddition}
+          handleDrag={handleDrag}
+          handleTagClick={handleTagClick}
+          onTagUpdate={onTagUpdate}
+          editable
+          clearAll
+          onClearAll={onClearAll}
+          maxTags={7}
+          allowAdditionFromPaste
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
-
-
+    </div>
+  );
+};
+export default App;
 
 
 
