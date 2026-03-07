@@ -25,6 +25,13 @@ const data = [
   }
 ];
 
+ const maxObj = data?.reduce((pre, curr) => {
+    const preMax = Math.max(...Object.values(pre));
+    const currMax = Math.max(...Object.values(curr));
+    return currMax > preMax ? curr : pre;
+  });
+  console.log(maxObj);
+
 const { key: maxKey, value: maxValue } = data.reduce(
   (acc, obj) => {
     const [key, value] = Object.entries(obj).reduce(
