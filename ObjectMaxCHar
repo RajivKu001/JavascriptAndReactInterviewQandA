@@ -1,0 +1,22 @@
+  // find max character : "anagrams"
+  // input: "anagrams"
+  // output: [{letter:'a',count:3}]
+
+  // find max character : "collection"
+  // input: "collection"
+  // output: [{letter:'c',count:2},{letter:'o',count:2},{letter:'l',count:2}]
+  const maxChr = 'collection';
+
+  const maxCharFun = maxChr.split('').reduce((acc, curr) => {
+    return acc[curr] ? ++acc[curr] : (acc[curr] = 1), acc;
+  }, {});
+
+  const maxCount = Math.max(...Object.values(maxCharFun));
+  const output = Object.entries(maxCharFun)
+    .filter(([letter, count]) => {
+      return count === maxCount;
+    })
+    .map(([letter, count]) => {
+      return { letter, count };
+    });
+  console.log(output);
