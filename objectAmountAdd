@@ -1,0 +1,39 @@
+import React, { useState, useEffect, useRef } from 'react';
+
+export default function App() {
+  const data = [
+    { userId: 'u1', amount: 50, category: 'food' },
+    { userId: 'u2', amount: 20, category: 'travel' },
+    { userId: 'u1', amount: 30, category: 'food' },
+    { userId: 'u1', amount: 100, category: 'shopping' },
+    { userId: 'u2', amount: 80, category: 'travel' },
+  ];
+
+  // Expected Output
+
+  // {
+  //   "u1": {
+  //     "food": 80,
+  //     "shopping": 100
+  //   },
+  //   "u2": {
+  //     "travel": 100
+  //   }
+  // }
+
+  const result = {};
+
+  data?.forEach((item) => {
+    const { userId, amount, category } = item;
+    if (!result[userId]) {
+      result[userId] = {};
+    }
+    if (!result[userId][category]) {
+      result[userId][category] = 0;
+    }
+    result[userId][category] += amount;
+  });
+  console.log(result);
+
+  return <div></div>;
+}
