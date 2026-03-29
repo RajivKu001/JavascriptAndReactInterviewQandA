@@ -1,0 +1,25 @@
+function isDeepEqual(obj1, obj2) {
+  // 1. Check if both are exactly the same reference
+  if (obj1 === obj2) return true;
+
+  // 2. Check if they are objects and not null
+  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) {
+    return false;
+  }
+
+  // 3. Get keys and compare length
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  if (keys1.length !== keys2.length) return false;
+
+  // 4. Recursively check every property
+  for (let key of keys1) {
+    if (!keys2.includes(key) || !isDeepEqual(obj1[key], obj2[key])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isDeepEqual({a: 1}, {a: 1})); // true
