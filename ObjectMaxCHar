@@ -1,22 +1,24 @@
-  // find max character : "anagrams"
-  // input: "anagrams"
-  // output: [{letter:'a',count:3}]
+  function findMaxChar(str) {
+    const charMap = {};
+    let maxCount = 0;
+    let maxChar = '';
 
-  // find max character : "collection"
-  // input: "collection"
-  // output: [{letter:'c',count:2},{letter:'o',count:2},{letter:'l',count:2}]
-  const maxChr = 'collection';
+    // 1. Frequency Map banayein
+    for (let char of str) {
+      charMap[char] = (charMap[char] || 0) + 1;
 
-  const maxCharFun = maxChr.split('').reduce((acc, curr) => {
-    return acc[curr] ? ++acc[curr] : (acc[curr] = 1), acc;
-  }, {});
+      // 2. Saath-saath check karein ki kya ye ab tak ka max hai?
+      if (charMap[char] > maxCount) {
+        maxCount = charMap[char];
+        maxChar = char;
+      }
+    }
 
-  const maxCount = Math.max(...Object.values(maxCharFun));
-  const output = Object.entries(maxCharFun)
-    .filter(([letter, count]) => {
-      return count === maxCount;
-    })
-    .map(([letter, count]) => {
-      return { letter, count };
-    });
-  console.log(output);
+    console.log(charMap);
+    // 3. Output format: [{letter: 'a', count: 3}]
+    return [{ letter: maxChar, count: maxCount }];
+  }
+
+  const input = 'anagrams';
+  console.log(findMaxChar(input));
+  // Output: [{ letter: 'a', count: 3 }]
