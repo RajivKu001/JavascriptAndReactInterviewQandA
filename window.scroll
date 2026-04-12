@@ -1,0 +1,70 @@
+import "./styles.css";
+import DetectScroll from "./components/DetectScroll";
+
+export default function App() {
+  return (
+    <div className="App">
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+      <DetectScroll />
+    </div>
+  );
+}
+
+
+import { useEffect, useState, useRef } from "react";
+
+const useScrollDetection = () => {
+  const [scrollDirection, setScrollDirection] = useState("");
+  const prevScrollY = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    prevScrollY.current > window.scrollY
+      ? setScrollDirection("UP")
+      : setScrollDirection("DOWN");
+
+    prevScrollY.current = window.scrollY;
+  };
+
+  return scrollDirection;
+};
+
+export default useScrollDetection;
+
+
+
+import useScrollDetection from "../hooks/useScrollDetection";
+
+const DetectScroll = () => {
+  const scrollDetection = useScrollDetection();
+  return (
+    <>
+      <h1>Scroll Direction: {scrollDetection}</h1>
+      {/* <h1>Code for Interview</h1> */}
+    </>
+  );
+};
+
+export default DetectScroll;
+
+
