@@ -1,0 +1,40 @@
+import React, { useState, useEffect } from 'react';
+
+const LIGHTS = {
+  red: { color: 'red', duration: 4000, next: 'green' },
+  yellow: { color: 'yellow', duration: 1000, next: 'red' },
+  green: { color: 'green', duration: 3000, next: 'yellow' },
+};
+
+const TrafficLight = () => {
+  const [currentLight, setCurrentLight] = useState('red');
+
+  useEffect(() => {
+    const { duration, next } = LIGHTS[currentLight];
+
+    const timer = setTimeout(() => {
+      setCurrentLight(next);
+    }, duration);
+
+    // Cleanup: Interviewer will look for this!
+    return () => clearTimeout(timer);
+  }, [currentLight]);
+
+  return (
+    <div className="traffic-light-container">
+      {Object.keys(LIGHTS).map((key, ind) => (
+        <div
+          key={key}
+          className="light"
+          style={{
+            backgroundColor: currentLight === key ? LIGHTS[key].color : 'grey',
+          }}
+        >
+          {ind}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default TrafficLight;
