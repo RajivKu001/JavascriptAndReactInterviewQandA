@@ -1,0 +1,16 @@
+const obj1 = { a: 1, b: 3, c: 2, e: 555 };
+const obj2 = { h: 12, e: 123, k: 77, c: 88, g: 97 };
+
+const merged = { ...obj1 };
+
+for (let key in obj2) {
+  if (merged.hasOwnProperty(key)) {
+    // If the key exists in both, take the maximum value
+    merged[key] = Math.max(merged[key], obj2[key]);
+  } else {
+    // If it's a new key, just add it
+    merged[key] = obj2[key];
+  }
+}
+
+console.log(merged);
