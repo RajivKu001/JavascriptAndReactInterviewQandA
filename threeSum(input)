@@ -1,0 +1,46 @@
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    const result = [];
+    // 1. Sort the array (Essential for two-pointer logic)
+    nums.sort((a, b) => a - b);
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        // 2. Skip duplicate 'i' values
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            const sum = nums[i] + nums[left] + nums[right];
+
+            if (sum === 0) {
+                // Found a triplet!
+                result.push([nums[i], nums[left], nums[right]]);
+
+                // 3. Skip duplicate 'left' and 'right' values
+                while (left < right && nums[left] === nums[left + 1]) left++;
+                while (left < right && nums[right] === nums[right - 1]) right--;
+
+                left++;
+                right--;
+            } else if (sum < 0) {
+                // Sum chhota hai, toh left pointer ko right move karo (bada number chahiye)
+                left++;
+            } else {
+                // Sum bada hai, toh right pointer ko left move karo (chhota number chahiye)
+                right--;
+            }
+        }
+    }
+
+    return result;
+};
+
+// Example Test
+const input = [-1, 0, 1, 2, -1, -4];
+console.log(threeSum(input)); 
+// Output: [ [-1, -1, 2], [-1, 0, 1] ]
